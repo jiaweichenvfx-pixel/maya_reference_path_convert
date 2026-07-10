@@ -9,6 +9,7 @@
 ```text
 maya_path_trans/
 ├── README.md
+├── 一键转换.command
 ├── data/
 │   ├── server_files.json
 │   └── ma_file.json
@@ -28,6 +29,24 @@ maya_path_trans/
 - 不需要安装第三方 Python 库
 - 扫描查找表时，需要当前电脑能够读取服务器目录
 - 转换 `.ma` 文件时，不需要连接服务器，只需要 `data/ma_file.json`
+
+## macOS 一键运行（推荐）
+
+把需要转换的 `.ma` 文件放入 `ori/`，然后直接双击项目根目录中的：
+
+```text
+一键转换.command
+```
+
+脚本会自动执行批量转换，不需要手动输入 `python3` 或 `batch`。
+终端窗口会显示每个文件的替换、缺失、冲突和格式回退信息。
+转换完成后按回车关闭窗口，结果保存在 `output/`。
+
+macOS 第一次运行时如果阻止打开，可以按住 Control 点击
+`一键转换.command`，选择“打开”，然后再次确认“打开”。
+
+一键入口只执行路径转换，不会自动扫描服务器。需要更新查找表时，
+仍然使用后文的 `scan-server` 命令。
 
 ## 修改服务器路径
 
