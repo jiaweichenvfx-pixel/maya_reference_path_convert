@@ -107,7 +107,7 @@ P:/JDZ/VFX/Assets/CGassets/...
 
 ### `REFERENCE_DEFER_VALUE`
 
-控制实际 `file -r` 引用命令中的 `-dr` 参数：
+控制 `file -r` 和 `file -rdi` 引用记录中的 `-dr` 参数：
 
 ```python
 REFERENCE_DEFER_VALUE = 0
@@ -123,7 +123,9 @@ REFERENCE_DEFER_VALUE = 0
 REFERENCE_DEFER_VALUE = 0
 ```
 
-脚本只修改实际的 `file -r` 引用命令，不会修改 `file -rdi` 信息记录。
+脚本会同步修改实际的 `file -r` 引用命令和 `file -rdi` 加载偏好，
+避免两组命令分别保存为加载和未加载状态。
+`-rdi 1`、`-rdi 2` 等引用层级数字不会被修改。
 原本没有 `-dr` 参数的引用会保持不变；Maya 默认会自动加载这类引用。
 
 ### `PREFERRED_REFERENCE_FOLDERS`
@@ -163,7 +165,9 @@ REFERENCE_EXTENSION_FALLBACKS = {
 1. 首先查找完全相同的文件名，例如 `Hero_Rig.ma`。
 2. 完全同名文件不存在时，才尝试同名 `Hero_Rig.mb`。
 3. 找到 `.mb` 后，引用路径会直接替换为 `.mb` 文件路径。
-4. 日志会显示 `[格式回退]`，方便确认哪些引用改变了扩展名。
+4. 显式 `-typ "mayaAscii"` 会同步改成 `-typ "mayaBinary"`。
+5. `.mb` 改回 `.ma` 时，也会同步恢复为 `-typ "mayaAscii"`。
+6. 日志会显示 `[格式回退]` 和 `[文件类型]`，方便审查修改。
 
 可以修改 `REFERENCE_EXTENSION_FALLBACKS` 来调整或关闭回退规则。
 

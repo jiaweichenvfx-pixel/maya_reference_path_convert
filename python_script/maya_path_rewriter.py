@@ -40,6 +40,10 @@ PREFERRED_REFERENCE_FOLDERS = ("Publish", "Approve")
 
 # 查找表中允许作为 Maya 引用目标的文件类型。
 MAYA_REFERENCE_EXTENSIONS = (".ma", ".mb")
+MAYA_FILE_TYPES = {
+    ".ma": "mayaAscii",
+    ".mb": "mayaBinary",
+}
 
 # 精确文件名不存在时允许的扩展名回退规则。
 # 例如 Hero_Rig.ma 找不到时，尝试查找同名 Hero_Rig.mb。
@@ -91,6 +95,9 @@ class PathOccurrence(NamedTuple):
     end: int
     kind: str
     line: int
+    file_type: str | None = None
+    file_type_start: int | None = None
+    file_type_end: int | None = None
 
 
 class MatchResult(NamedTuple):
@@ -104,12 +111,13 @@ class MatchResult(NamedTuple):
 
 
 class DeferOccurrence(NamedTuple):
-    """实际 file -r 命令中的 -dr 参数位置。"""
+    """file -r/file -rdi 命令中的 -dr 参数位置。"""
 
     value: int
     start: int
     end: int
     line: int
+    kind: str
 
 
 def maya_path(path: str) -> str:
@@ -425,6 +433,27 @@ def _path_occurrence(
     return None
 
 
+def _file_type_span(
+    statement: str,
+    statement_start: int,
+) -> tuple[str, int, int] | None:
+    """定位 file 命令中显式 -typ 字符串的内容范围。"""
+    match = re.search(r'(?<!\S)-typ\s+"([^"]*)"', statement)
+    if match is None:
+        return None
+    return (
+        _decode_maya_string(match.group(1)),
+        statement_start + match.start(1),
+        statement_start + match.end(1),
+    )
+
+
+def _maya_file_type(path: str) -> str | None:
+    """根据 Maya 文件扩展名返回显式 file -typ 值。"""
+    normalized = COPY_NUMBER_SUFFIX.sub("", maya_path(path).strip())
+    return MAYA_FILE_TYPES.get(Path(normalized).suffix.casefold())
+
+
 def scan_maya_text(text: str) -> list[PathOccurrence]:
     """扫描 Maya ASCII，只定位场景引用和 reference 节点的 Maya 路径。"""
     occurrences: list[PathOccurrence] = []
@@ -450,6 +479,14 @@ def scan_maya_text(text: str) -> list[PathOccurrence]:
                 "file-reference",
             )
             if occurrence is not None:
+                file_type_span = _file_type_span(statement, statement_start)
+                if file_type_span is not None:
+                    file_type, type_start, type_end = file_type_span
+                    occurrence = occurrence._replace(
+                        file_type=file_type,
+                        file_type_start=type_start,
+                        file_type_end=type_end,
+                    )
                 occurrences.append(occurrence)
             continue
 
@@ -600,14 +637,15 @@ def match_asset(old_path: str, table: dict[str, Any]) -> MatchResult:
 
 
 def scan_defer_reference_flags(text: str) -> list[DeferOccurrence]:
-    """定位实际 file -r 引用命令中的 -dr 0/1，不处理 file -rdi。"""
+    """定位 file -r/file -rdi 命令中的 -dr 0/1。"""
     occurrences: list[DeferOccurrence] = []
-    reference_flag = re.compile(r"(?:^|\s)-r(?=\s|$)")
+    reference_flag = re.compile(r"(?:^|\s)-(r|rdi)(?=\s|$)")
     defer_flag = re.compile(r"(?<!\S)-dr\s+([01])(?=\s|$)")
 
     for statement_start, _statement_end, statement in _iter_maya_statements(text):
         code = _leading_code(statement)
-        if not re.match(r"file\b", code) or not reference_flag.search(code):
+        reference_match = reference_flag.search(code)
+        if not re.match(r"file\b", code) or reference_match is None:
             continue
         match = defer_flag.search(statement)
         if match is None:
@@ -619,6 +657,7 @@ def scan_defer_reference_flags(text: str) -> list[DeferOccurrence]:
                 start=value_start,
                 end=statement_start + match.end(1),
                 line=text.count("\n", 0, value_start) + 1,
+                kind=f"file-{reference_match.group(1)}",
             )
         )
 
@@ -639,7 +678,8 @@ def rewrite_maya_text(
     cache: dict[str, MatchResult] = {}
     items: list[dict[str, Any]] = []
     counts = {"matched": 0, "conflict": 0, "missing": 0}
-    defer_changes: list[dict[str, int]] = []
+    defer_changes: list[dict[str, Any]] = []
+    file_type_changes: list[dict[str, Any]] = []
 
     for occurrence in occurrences:
         cache_key = occurrence.path.casefold()
@@ -651,6 +691,29 @@ def rewrite_maya_text(
         counts[result.status] += 1
         if result.status == "matched" and result.path is not None:
             replacements.append((occurrence.start, occurrence.end, result.path))
+            expected_file_type = _maya_file_type(result.path)
+            if (
+                expected_file_type is not None
+                and occurrence.file_type is not None
+                and occurrence.file_type_start is not None
+                and occurrence.file_type_end is not None
+                and occurrence.file_type != expected_file_type
+            ):
+                replacements.append(
+                    (
+                        occurrence.file_type_start,
+                        occurrence.file_type_end,
+                        expected_file_type,
+                    )
+                )
+                file_type_changes.append(
+                    {
+                        "line": occurrence.line,
+                        "old_value": occurrence.file_type,
+                        "new_value": expected_file_type,
+                        "path": result.path,
+                    }
+                )
 
         items.append(
             {
@@ -679,6 +742,7 @@ def rewrite_maya_text(
             defer_changes.append(
                 {
                     "line": occurrence.line,
+                    "kind": occurrence.kind,
                     "old_value": occurrence.value,
                     "new_value": defer_reference_value,
                 }
@@ -708,6 +772,8 @@ def rewrite_maya_text(
         "defer_changed": len(defer_changes),
         "defer_value": defer_reference_value,
         "defer_changes": defer_changes,
+        "file_type_changed": len(file_type_changes),
+        "file_type_changes": file_type_changes,
         "items": items,
     }
     return rewritten, report
@@ -798,19 +864,42 @@ def print_rewrite_report(report: dict[str, Any]) -> None:
         "扫描到 {scanned} 处 Maya 路径：匹配 {matched}，"
         "冲突 {conflict}，缺失 {missing}，实际修改 {changed}，"
         "格式回退 {extension_fallback}，"
-        "加载状态修改 {defer_changed}".format(**report)
+        "加载状态修改 {defer_changed}，"
+        "文件类型修改 {file_type_changed}".format(**report)
     )
     if report["defer_changes"]:
-        grouped_defer: dict[tuple[int, int], list[int]] = {}
+        grouped_defer: dict[tuple[str, int, int], list[int]] = {}
         for change in report["defer_changes"]:
-            key = (change["old_value"], change["new_value"])
+            key = (
+                change["kind"],
+                change["old_value"],
+                change["new_value"],
+            )
             grouped_defer.setdefault(key, []).append(change["line"])
-        for (old_value, new_value), lines in grouped_defer.items():
+        for (kind, old_value, new_value), lines in grouped_defer.items():
             line_text = ", ".join(str(line) for line in lines)
+            command_label = "file -rdi" if kind == "file-rdi" else "file -r"
             print(
-                f"[加载设置] -dr {old_value} -> -dr {new_value} "
+                f"[加载设置 {command_label}] "
+                f"-dr {old_value} -> -dr {new_value} "
                 f"(出现 {len(lines)} 次，行 {line_text})"
             )
+    if report["file_type_changes"]:
+        grouped_types: dict[tuple[str, str, str], list[int]] = {}
+        for change in report["file_type_changes"]:
+            key = (
+                change["old_value"],
+                change["new_value"],
+                change["path"],
+            )
+            grouped_types.setdefault(key, []).append(change["line"])
+        for (old_value, new_value, path), lines in grouped_types.items():
+            line_text = ", ".join(str(line) for line in lines)
+            print(
+                f"[文件类型] {old_value} -> {new_value} "
+                f"(出现 {len(lines)} 次，行 {line_text})"
+            )
+            print(f"  -> {path}")
     for group in grouped.values():
         lines = ", ".join(str(line) for line in group["lines"])
         status_label = _status_label(group["status"])
@@ -918,6 +1007,7 @@ def rewrite_directory(
         "extension_fallback": 0,
         "changed": 0,
         "defer_changed": 0,
+        "file_type_changed": 0,
         "files": [],
     }
 
@@ -953,6 +1043,7 @@ def rewrite_directory(
             "extension_fallback",
             "changed",
             "defer_changed",
+            "file_type_changed",
         ):
             summary[key] += report[key]
         summary["files"].append(
@@ -984,7 +1075,8 @@ def print_batch_report(summary: dict[str, Any], dry_run: bool) -> None:
             f"修改 {report['changed']}，缺失 {report['missing']}，"
             f"冲突 {report['conflict']}，扫描路径 {report['scanned']}，"
             f"格式回退 {report.get('extension_fallback', 0)}，"
-            f"加载状态修改 {report.get('defer_changed', 0)}"
+            f"加载状态修改 {report.get('defer_changed', 0)}，"
+            f"文件类型修改 {report.get('file_type_changed', 0)}"
         )
         print(
             f"  扫描范围：文件头 {report['scanned_bytes']} 字节，"
@@ -992,16 +1084,41 @@ def print_batch_report(summary: dict[str, Any], dry_run: bool) -> None:
         )
 
         if report.get("defer_changes"):
-            grouped_defer: dict[tuple[int, int], list[int]] = {}
+            grouped_defer: dict[tuple[str, int, int], list[int]] = {}
             for change in report["defer_changes"]:
-                key = (change["old_value"], change["new_value"])
+                key = (
+                    change["kind"],
+                    change["old_value"],
+                    change["new_value"],
+                )
                 grouped_defer.setdefault(key, []).append(change["line"])
-            for (old_value, new_value), lines in grouped_defer.items():
+            for (kind, old_value, new_value), lines in grouped_defer.items():
                 line_text = ", ".join(str(line) for line in lines)
+                command_label = (
+                    "file -rdi" if kind == "file-rdi" else "file -r"
+                )
                 print(
-                    f"  [加载设置] -dr {old_value} -> -dr {new_value} "
+                    f"  [加载设置 {command_label}] "
+                    f"-dr {old_value} -> -dr {new_value} "
                     f"(出现 {len(lines)} 次，行 {line_text})"
                 )
+
+        if report.get("file_type_changes"):
+            grouped_types: dict[tuple[str, str, str], list[int]] = {}
+            for change in report["file_type_changes"]:
+                key = (
+                    change["old_value"],
+                    change["new_value"],
+                    change["path"],
+                )
+                grouped_types.setdefault(key, []).append(change["line"])
+            for (old_value, new_value, path), lines in grouped_types.items():
+                line_text = ", ".join(str(line) for line in lines)
+                print(
+                    f"  [文件类型] {old_value} -> {new_value} "
+                    f"(出现 {len(lines)} 次，行 {line_text})"
+                )
+                print(f"    -> {path}")
 
         for group in _group_report_items(report):
             lines = ", ".join(str(line) for line in group["lines"])
@@ -1039,7 +1156,8 @@ def print_batch_report(summary: dict[str, Any], dry_run: bool) -> None:
         f"修改 {summary['changed']}，缺失 {summary['missing']}，"
         f"冲突 {summary['conflict']}，"
         f"格式回退 {summary.get('extension_fallback', 0)}，"
-        f"加载状态修改 {summary.get('defer_changed', 0)}"
+        f"加载状态修改 {summary.get('defer_changed', 0)}，"
+        f"文件类型修改 {summary.get('file_type_changed', 0)}"
     )
     if dry_run:
         print("试运行完成：没有写入任何文件")
