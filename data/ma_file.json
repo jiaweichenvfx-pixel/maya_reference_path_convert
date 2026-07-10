@@ -1,0 +1,844 @@
+{
+  "version": 1,
+  "generated_at": "2026-07-10T07:19:38.807716+00:00",
+  "mac_root": "/Volumes/projects/JDZ/VFX/Assets/CGassets",
+  "windows_root": "P:/JDZ/VFX/Assets/CGassets",
+  "file_count": 104,
+  "error_count": 0,
+  "files": [
+    {
+      "name": "ChengXin_CH_lookdev_V001.ma",
+      "name_key": "chengxin_ch_lookdev_v001.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/LookDev/LookDev/Publish/ChengXin_CH_lookdev_V001.ma",
+      "relative_path": "Characters/ChengXin/LookDev/LookDev/Publish/ChengXin_CH_lookdev_V001.ma",
+      "size": 4858501,
+      "mtime_ns": 1783601773393639700
+    },
+    {
+      "name": "ChengXin_CH_Lookdev_V001.ma",
+      "name_key": "chengxin_ch_lookdev_v001.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/LookDev/LookDev/Publish/History/ChengXin_CH_Lookdev_V001.ma",
+      "relative_path": "Characters/ChengXin/LookDev/LookDev/Publish/History/ChengXin_CH_Lookdev_V001.ma",
+      "size": 8936230,
+      "mtime_ns": 1783604148456334100
+    },
+    {
+      "name": "SM_NPCChengxin_01_Rig_v5_01.ma",
+      "name_key": "sm_npcchengxin_01_rig_v5_01.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Rig/Rig/Publish/History/SM_NPCChengxin_01_Rig_v5_01.ma",
+      "relative_path": "Characters/ChengXin/Rig/Rig/Publish/History/SM_NPCChengxin_01_Rig_v5_01.ma",
+      "size": 155312571,
+      "mtime_ns": 1783604236474579400
+    },
+    {
+      "name": "SM_NPCChengxin_01_Rig_v5.ma",
+      "name_key": "sm_npcchengxin_01_rig_v5.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Rig/Rig/Publish/SM_NPCChengxin_01_Rig_v5.ma",
+      "relative_path": "Characters/ChengXin/Rig/Rig/Publish/SM_NPCChengxin_01_Rig_v5.ma",
+      "size": 162140150,
+      "mtime_ns": 1783601861247727100
+    },
+    {
+      "name": "Npc02_CH_lookdev_V001.ma",
+      "name_key": "npc02_ch_lookdev_v001.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/Npc02/LookDev/LookDev/Publish/History/Npc02_CH_lookdev_V001.ma",
+      "relative_path": "Characters/Npc02/LookDev/LookDev/Publish/History/Npc02_CH_lookdev_V001.ma",
+      "size": 14105846,
+      "mtime_ns": 1783604250747618500
+    },
+    {
+      "name": "Npc02_CH_lookdev_V001.ma",
+      "name_key": "npc02_ch_lookdev_v001.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/Npc02/LookDev/LookDev/Publish/Npc02_CH_lookdev_V001.ma",
+      "relative_path": "Characters/Npc02/LookDev/LookDev/Publish/Npc02_CH_lookdev_V001.ma",
+      "size": 14124644,
+      "mtime_ns": 1783601892429800700
+    },
+    {
+      "name": "Npc02_CH_RIG_V002.ma",
+      "name_key": "npc02_ch_rig_v002.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/Npc02/Rig/Rig/Publish/Npc02_CH_RIG_V002.ma",
+      "relative_path": "Characters/Npc02/Rig/Rig/Publish/Npc02_CH_RIG_V002.ma",
+      "size": 43043910,
+      "mtime_ns": 1783601966077311200
+    },
+    {
+      "name": "Npc03_CH_lookdev_V001.ma",
+      "name_key": "npc03_ch_lookdev_v001.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/Npc03/LookDev/LookDev/Publish/History/Npc03_CH_lookdev_V001.ma",
+      "relative_path": "Characters/Npc03/LookDev/LookDev/Publish/History/Npc03_CH_lookdev_V001.ma",
+      "size": 14187081,
+      "mtime_ns": 1783604311610987000
+    },
+    {
+      "name": "Npc03_CH_lookdev_V001.ma",
+      "name_key": "npc03_ch_lookdev_v001.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/Npc03/LookDev/LookDev/Publish/Npc03_CH_lookdev_V001.ma",
+      "relative_path": "Characters/Npc03/LookDev/LookDev/Publish/Npc03_CH_lookdev_V001.ma",
+      "size": 14198009,
+      "mtime_ns": 1783602017357953800
+    },
+    {
+      "name": "Npc03_CH_Rig_V003.ma",
+      "name_key": "npc03_ch_rig_v003.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/Npc03/Rig/Rig/Publish/Npc03_CH_Rig_V003.ma",
+      "relative_path": "Characters/Npc03/Rig/Rig/Publish/Npc03_CH_Rig_V003.ma",
+      "size": 40612397,
+      "mtime_ns": 1783602081953954900
+    },
+    {
+      "name": "Npc04_CH_lookdev_V002.ma",
+      "name_key": "npc04_ch_lookdev_v002.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/Npc04/LookDev/LookDev/Publish/History/Npc04_CH_lookdev_V002.ma",
+      "relative_path": "Characters/Npc04/LookDev/LookDev/Publish/History/Npc04_CH_lookdev_V002.ma",
+      "size": 12141943,
+      "mtime_ns": 1783604389453965300
+    },
+    {
+      "name": "Npc04_CH_lookdev_V002.ma",
+      "name_key": "npc04_ch_lookdev_v002.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/Npc04/LookDev/LookDev/Publish/Npc04_CH_lookdev_V002.ma",
+      "relative_path": "Characters/Npc04/LookDev/LookDev/Publish/Npc04_CH_lookdev_V002.ma",
+      "size": 12149070,
+      "mtime_ns": 1783602116415340300
+    },
+    {
+      "name": "Npc04_CH_Rig_V002.ma",
+      "name_key": "npc04_ch_rig_v002.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/Npc04/Rig/Rig/Publish/Npc04_CH_Rig_V002.ma",
+      "relative_path": "Characters/Npc04/Rig/Rig/Publish/Npc04_CH_Rig_V002.ma",
+      "size": 38864060,
+      "mtime_ns": 1783602191841133800
+    },
+    {
+      "name": "Npc05_CH_lookdev_V002.ma",
+      "name_key": "npc05_ch_lookdev_v002.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/Npc05/LookDev/LookDev/Publish/History/Npc05_CH_lookdev_V002.ma",
+      "relative_path": "Characters/Npc05/LookDev/LookDev/Publish/History/Npc05_CH_lookdev_V002.ma",
+      "size": 30695206,
+      "mtime_ns": 1783604468788639700
+    },
+    {
+      "name": "Npc05_CH_lookdev_V002.ma",
+      "name_key": "npc05_ch_lookdev_v002.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/Npc05/LookDev/LookDev/Publish/Npc05_CH_lookdev_V002.ma",
+      "relative_path": "Characters/Npc05/LookDev/LookDev/Publish/Npc05_CH_lookdev_V002.ma",
+      "size": 30709598,
+      "mtime_ns": 1783602228286153500
+    },
+    {
+      "name": "Npc05_CH_Rig.ma",
+      "name_key": "npc05_ch_rig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/Npc05/Rig/Rig/Publish/Npc05_CH_Rig.ma",
+      "relative_path": "Characters/Npc05/Rig/Rig/Publish/Npc05_CH_Rig.ma",
+      "size": 87925278,
+      "mtime_ns": 1783602302064913300
+    },
+    {
+      "name": "Npc06_CH_Mod_V001.ma",
+      "name_key": "npc06_ch_mod_v001.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/Npc06/LookDev/LookDev/Publish/History/Npc06_CH_Mod_V001.ma",
+      "relative_path": "Characters/Npc06/LookDev/LookDev/Publish/History/Npc06_CH_Mod_V001.ma",
+      "size": 31145827,
+      "mtime_ns": 1783604550565265300
+    },
+    {
+      "name": "Npc06_CH_Mod_V001.ma",
+      "name_key": "npc06_ch_mod_v001.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/Npc06/LookDev/LookDev/Publish/Npc06_CH_Mod_V001.ma",
+      "relative_path": "Characters/Npc06/LookDev/LookDev/Publish/Npc06_CH_Mod_V001.ma",
+      "size": 31155770,
+      "mtime_ns": 1783602369215418500
+    },
+    {
+      "name": "Npc06_CH_Rig.ma",
+      "name_key": "npc06_ch_rig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/Npc06/Rig/Rig/Publish/Npc06_CH_Rig.ma",
+      "relative_path": "Characters/Npc06/Rig/Rig/Publish/Npc06_CH_Rig.ma",
+      "size": 79995000,
+      "mtime_ns": 1783602414415517500
+    },
+    {
+      "name": "Npc07_CH_Mod_V001.ma",
+      "name_key": "npc07_ch_mod_v001.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/Npc07/LookDev/LookDev/Publish/History/Npc07_CH_Mod_V001.ma",
+      "relative_path": "Characters/Npc07/LookDev/LookDev/Publish/History/Npc07_CH_Mod_V001.ma",
+      "size": 32263147,
+      "mtime_ns": 1783604621090217400
+    },
+    {
+      "name": "Npc07_CH_Mod_V001.ma",
+      "name_key": "npc07_ch_mod_v001.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/Npc07/LookDev/LookDev/Publish/Npc07_CH_Mod_V001.ma",
+      "relative_path": "Characters/Npc07/LookDev/LookDev/Publish/Npc07_CH_Mod_V001.ma",
+      "size": 32273381,
+      "mtime_ns": 1783602523152845400
+    },
+    {
+      "name": "Npc07_CH_Rig.ma",
+      "name_key": "npc07_ch_rig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/Npc07/Rig/Rig/Publish/Npc07_CH_Rig.ma",
+      "relative_path": "Characters/Npc07/Rig/Rig/Publish/Npc07_CH_Rig.ma",
+      "size": 80097869,
+      "mtime_ns": 1783602534062705300
+    },
+    {
+      "name": "ShiBing_CH_Lookdev_V001.ma",
+      "name_key": "shibing_ch_lookdev_v001.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ShiBing/LookDev/LookDev/Publish/ShiBing_CH_Lookdev_V001.ma",
+      "relative_path": "Characters/ShiBing/LookDev/LookDev/Publish/ShiBing_CH_Lookdev_V001.ma",
+      "size": 29423417,
+      "mtime_ns": 1783602569191156400
+    },
+    {
+      "name": "ShiBing_CH_Rig_v2.ma",
+      "name_key": "shibing_ch_rig_v2.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ShiBing/Rig/Rig/Publish/History/ShiBing_CH_Rig_v2.ma",
+      "relative_path": "Characters/ShiBing/Rig/Rig/Publish/History/ShiBing_CH_Rig_v2.ma",
+      "size": 195250787,
+      "mtime_ns": 1783604770772294300
+    },
+    {
+      "name": "ShiBing_CH_Rig_v2.ma",
+      "name_key": "shibing_ch_rig_v2.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ShiBing/Rig/Rig/Publish/ShiBing_CH_Rig_v2.ma",
+      "relative_path": "Characters/ShiBing/Rig/Rig/Publish/ShiBing_CH_Rig_v2.ma",
+      "size": 195252077,
+      "mtime_ns": 1783602648466705200
+    },
+    {
+      "name": "Char_Male_Rig.ma",
+      "name_key": "char_male_rig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ShiFu/LookDev/LookDev/Publish/hair/hair/Char_Male_Rig.ma",
+      "relative_path": "Characters/ShiFu/LookDev/LookDev/Publish/hair/hair/Char_Male_Rig.ma",
+      "size": 89773771,
+      "mtime_ns": 1783606000676836500
+    },
+    {
+      "name": "Char_Male_Rig.ma",
+      "name_key": "char_male_rig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ShiFu/Rig/Rig/Publish/Char_Male_Rig.ma",
+      "relative_path": "Characters/ShiFu/Rig/Rig/Publish/Char_Male_Rig.ma",
+      "size": 135128876,
+      "mtime_ns": 1783602768929839800
+    },
+    {
+      "name": "Char_Male_Rig_01.ma",
+      "name_key": "char_male_rig_01.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ShiFu/Rig/Rig/Publish/History/Char_Male_Rig_01.ma",
+      "relative_path": "Characters/ShiFu/Rig/Rig/Publish/History/Char_Male_Rig_01.ma",
+      "size": 102795678,
+      "mtime_ns": 1783604850227773800
+    },
+    {
+      "name": "Char_Male_Rig_02.ma",
+      "name_key": "char_male_rig_02.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ShiFu/Rig/Rig/Publish/History/Char_Male_Rig_02.ma",
+      "relative_path": "Characters/ShiFu/Rig/Rig/Publish/History/Char_Male_Rig_02.ma",
+      "size": 106411035,
+      "mtime_ns": 1783604856466524700
+    },
+    {
+      "name": "Char_Male_Rig_03.ma",
+      "name_key": "char_male_rig_03.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ShiFu/Rig/Rig/Publish/History/Char_Male_Rig_03.ma",
+      "relative_path": "Characters/ShiFu/Rig/Rig/Publish/History/Char_Male_Rig_03.ma",
+      "size": 110550572,
+      "mtime_ns": 1783604889705380000
+    },
+    {
+      "name": "LT_CAM.ma",
+      "name_key": "lt_cam.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ShiFu/Texture/Work/LT_CAM.ma",
+      "relative_path": "Characters/ShiFu/Texture/Work/LT_CAM.ma",
+      "size": 63762,
+      "mtime_ns": 1783600667802829000
+    },
+    {
+      "name": "SuiShi_CH_Lookdev_V001.ma",
+      "name_key": "suishi_ch_lookdev_v001.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/SuiShi/LookDev/LookDev/Publish/SuiShi_CH_Lookdev_V001.ma",
+      "relative_path": "Characters/SuiShi/LookDev/LookDev/Publish/SuiShi_CH_Lookdev_V001.ma",
+      "size": 22062988,
+      "mtime_ns": 1783602817789332700
+    },
+    {
+      "name": "SM_NPCSuiShi_Rig_v2.ma",
+      "name_key": "sm_npcsuishi_rig_v2.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/SuiShi/Rig/Rig/Publish/SM_NPCSuiShi_Rig_v2.ma",
+      "relative_path": "Characters/SuiShi/Rig/Rig/Publish/SM_NPCSuiShi_Rig_v2.ma",
+      "size": 193256803,
+      "mtime_ns": 1783602873912482000
+    },
+    {
+      "name": "WeiYan_CH_Mod_V003.ma",
+      "name_key": "weiyan_ch_mod_v003.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/LookDev/LookDev/Publish/WeiYan_CH_Mod_V003.ma",
+      "relative_path": "Characters/WeiYan/LookDev/LookDev/Publish/WeiYan_CH_Mod_V003.ma",
+      "size": 9021145,
+      "mtime_ns": 1783602948510675100
+    },
+    {
+      "name": "hand_maozi.ma",
+      "name_key": "hand_maozi.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Model/Work/hand_maozi.ma",
+      "relative_path": "Characters/WeiYan/Model/Work/hand_maozi.ma",
+      "size": 1639884,
+      "mtime_ns": 1783600796504301100
+    },
+    {
+      "name": "SM_NPCWeiyan_RIG_v9_01.ma",
+      "name_key": "sm_npcweiyan_rig_v9_01.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Rig/Rig/Publish/History/SM_NPCWeiyan_RIG_v9_01.ma",
+      "relative_path": "Characters/WeiYan/Rig/Rig/Publish/History/SM_NPCWeiyan_RIG_v9_01.ma",
+      "size": 138205235,
+      "mtime_ns": 1783605038480145500
+    },
+    {
+      "name": "SM_NPCWeiyan_RIG_v9_02.ma",
+      "name_key": "sm_npcweiyan_rig_v9_02.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Rig/Rig/Publish/History/SM_NPCWeiyan_RIG_v9_02.ma",
+      "relative_path": "Characters/WeiYan/Rig/Rig/Publish/History/SM_NPCWeiyan_RIG_v9_02.ma",
+      "size": 185563869,
+      "mtime_ns": 1783605010172776600
+    },
+    {
+      "name": "SM_NPCWeiyan_RIG_v9_03.ma",
+      "name_key": "sm_npcweiyan_rig_v9_03.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Rig/Rig/Publish/History/SM_NPCWeiyan_RIG_v9_03.ma",
+      "relative_path": "Characters/WeiYan/Rig/Rig/Publish/History/SM_NPCWeiyan_RIG_v9_03.ma",
+      "size": 187321150,
+      "mtime_ns": 1783605008485955000
+    },
+    {
+      "name": "SM_NPCWeiyan_RIG_v9_04.ma",
+      "name_key": "sm_npcweiyan_rig_v9_04.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Rig/Rig/Publish/History/SM_NPCWeiyan_RIG_v9_04.ma",
+      "relative_path": "Characters/WeiYan/Rig/Rig/Publish/History/SM_NPCWeiyan_RIG_v9_04.ma",
+      "size": 210338279,
+      "mtime_ns": 1783605006943027500
+    },
+    {
+      "name": "SM_NPCWeiyan_RIG_v9.ma",
+      "name_key": "sm_npcweiyan_rig_v9.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Rig/Rig/Publish/SM_NPCWeiyan_RIG_v9.ma",
+      "relative_path": "Characters/WeiYan/Rig/Rig/Publish/SM_NPCWeiyan_RIG_v9.ma",
+      "size": 196823207,
+      "mtime_ns": 1783603023030266700
+    },
+    {
+      "name": "SM_NPCYouguo_Rig_v7_01.ma",
+      "name_key": "sm_npcyouguo_rig_v7_01.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/YouGuo/Rig/Rig/Publish/History/SM_NPCYouguo_Rig_v7_01.ma",
+      "relative_path": "Characters/YouGuo/Rig/Rig/Publish/History/SM_NPCYouguo_Rig_v7_01.ma",
+      "size": 155550533,
+      "mtime_ns": 1783605085843836300
+    },
+    {
+      "name": "SM_NPCYouguo_Rig_v7_02.ma",
+      "name_key": "sm_npcyouguo_rig_v7_02.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/YouGuo/Rig/Rig/Publish/History/SM_NPCYouguo_Rig_v7_02.ma",
+      "relative_path": "Characters/YouGuo/Rig/Rig/Publish/History/SM_NPCYouguo_Rig_v7_02.ma",
+      "size": 162797959,
+      "mtime_ns": 1783605086948663500
+    },
+    {
+      "name": "SM_NPCYouguo_Rig_v7.ma",
+      "name_key": "sm_npcyouguo_rig_v7.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/YouGuo/Rig/Rig/Publish/SM_NPCYouguo_Rig_v7.ma",
+      "relative_path": "Characters/YouGuo/Rig/Rig/Publish/SM_NPCYouguo_Rig_v7.ma",
+      "size": 174970518,
+      "mtime_ns": 1783667172444359100
+    },
+    {
+      "name": "JDZ_biandan_MOD_v004.ma",
+      "name_key": "jdz_biandan_mod_v004.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/BianDan/Model/Model/Publish/JDZ_biandan_MOD_v004.ma",
+      "relative_path": "Props/BianDan/Model/Model/Publish/JDZ_biandan_MOD_v004.ma",
+      "size": 4734920,
+      "mtime_ns": 1783603135060563000
+    },
+    {
+      "name": "JDZ_biandan_RIG_v001.ma",
+      "name_key": "jdz_biandan_rig_v001.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/BianDan/Rig/Rig/Publish/History/JDZ_biandan_RIG_v001.ma",
+      "relative_path": "Props/BianDan/Rig/Rig/Publish/History/JDZ_biandan_RIG_v001.ma",
+      "size": 39874455,
+      "mtime_ns": 1783605193429125500
+    },
+    {
+      "name": "JDZ_biandan_RIG_v003.ma",
+      "name_key": "jdz_biandan_rig_v003.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/BianDan/Rig/Rig/Publish/History/JDZ_biandan_RIG_v003.ma",
+      "relative_path": "Props/BianDan/Rig/Rig/Publish/History/JDZ_biandan_RIG_v003.ma",
+      "size": 20875485,
+      "mtime_ns": 1783605155629193200
+    },
+    {
+      "name": "JDZ_biandan_MOD_v004.ma",
+      "name_key": "jdz_biandan_mod_v004.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/BianDan/Rig/Rig/Publish/JDZ_biandan_MOD_v004.ma",
+      "relative_path": "Props/BianDan/Rig/Rig/Publish/JDZ_biandan_MOD_v004.ma",
+      "size": 4734920,
+      "mtime_ns": 1783603198932525400
+    },
+    {
+      "name": "JDZ_biandan_RIG_v001.ma",
+      "name_key": "jdz_biandan_rig_v001.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/BianDan/Rig/Rig/Publish/JDZ_biandan_RIG_v001.ma",
+      "relative_path": "Props/BianDan/Rig/Rig/Publish/JDZ_biandan_RIG_v001.ma",
+      "size": 39938140,
+      "mtime_ns": 1783603202422094800
+    },
+    {
+      "name": "JDZ_biandan_RIG_v003.ma",
+      "name_key": "jdz_biandan_rig_v003.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/BianDan/Rig/Rig/Publish/JDZ_biandan_RIG_v003.ma",
+      "relative_path": "Props/BianDan/Rig/Rig/Publish/JDZ_biandan_RIG_v003.ma",
+      "size": 20873863,
+      "mtime_ns": 1783603203849414700
+    },
+    {
+      "name": "Boat02_Scene_lookdev_V003.ma",
+      "name_key": "boat02_scene_lookdev_v003.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/DaChuan/LookDev/LookDev/Publish/Boat02_Scene_lookdev_V003.ma",
+      "relative_path": "Props/DaChuan/LookDev/LookDev/Publish/Boat02_Scene_lookdev_V003.ma",
+      "size": 219591877,
+      "mtime_ns": 1783603249568208100
+    },
+    {
+      "name": "dimo.ma",
+      "name_key": "dimo.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/DaChuan/LookDev/LookDev/Publish/dimo.ma",
+      "relative_path": "Props/DaChuan/LookDev/LookDev/Publish/dimo.ma",
+      "size": 1022137,
+      "mtime_ns": 1783603242333119600
+    },
+    {
+      "name": "Boat02_Scene_V005_Rig.ma",
+      "name_key": "boat02_scene_v005_rig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/DaChuan/Rig/Rig/Publish/Boat02_Scene_V005_Rig.ma",
+      "relative_path": "Props/DaChuan/Rig/Rig/Publish/Boat02_Scene_V005_Rig.ma",
+      "size": 213757923,
+      "mtime_ns": 1783603369058447200
+    },
+    {
+      "name": "Dachuan_Rig_v001.ma",
+      "name_key": "dachuan_rig_v001.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/DaChuan/Rig/Rig/Publish/Dachuan_Rig_v001.ma",
+      "relative_path": "Props/DaChuan/Rig/Rig/Publish/Dachuan_Rig_v001.ma",
+      "size": 37134430,
+      "mtime_ns": 1783603314690337900
+    },
+    {
+      "name": "Boat02_Scene_lookdev_V005.ma",
+      "name_key": "boat02_scene_lookdev_v005.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/DaChuan/Texture/Work/JDZ/asset/Props/boat_02/lookdev/approve/Boat02_Scene_lookdev_V005.ma",
+      "relative_path": "Props/DaChuan/Texture/Work/JDZ/asset/Props/boat_02/lookdev/approve/Boat02_Scene_lookdev_V005.ma",
+      "size": 214657774,
+      "mtime_ns": 1783606409395036700
+    },
+    {
+      "name": "JDZ_prop_dulunche_v004.ma",
+      "name_key": "jdz_prop_dulunche_v004.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/DuLunChe/Rig/Rig/Publish/JDZ_prop_dulunche_v004.ma",
+      "relative_path": "Props/DuLunChe/Rig/Rig/Publish/JDZ_prop_dulunche_v004.ma",
+      "size": 14275063,
+      "mtime_ns": 1783603498352162900
+    },
+    {
+      "name": "JDZ_Props_dudaoqizi.ma",
+      "name_key": "jdz_props_dudaoqizi.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/DuTaoqizi/Model/Model/Publish/JDZ_Props_dudaoqizi.ma",
+      "relative_path": "Props/DuTaoqizi/Model/Model/Publish/JDZ_Props_dudaoqizi.ma",
+      "size": 1514071,
+      "mtime_ns": 1783603493865833600
+    },
+    {
+      "name": "LongGangCanPian_prp_mod_hig.ma",
+      "name_key": "longgangcanpian_prp_mod_hig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/DuTaoqizi/Model/Model/Work/scenes/ma/LongGangCanPian_prp_mod_hig.ma",
+      "relative_path": "Props/DuTaoqizi/Model/Model/Work/scenes/ma/LongGangCanPian_prp_mod_hig.ma",
+      "size": 7080014,
+      "mtime_ns": 1783606192302075400
+    },
+    {
+      "name": "LongGangCanPian_prp_tex_hig.ma",
+      "name_key": "longgangcanpian_prp_tex_hig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/DuTaoqizi/Model/Model/Work/scenes/ma/LongGangCanPian_prp_tex_hig.ma",
+      "relative_path": "Props/DuTaoqizi/Model/Model/Work/scenes/ma/LongGangCanPian_prp_tex_hig.ma",
+      "size": 7625537,
+      "mtime_ns": 1783606192187779200
+    },
+    {
+      "name": "prop_juanzhou_V01.ma",
+      "name_key": "prop_juanzhou_v01.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/DuTaoqizi/Model/Model/Work/scenes/ma/prop_juanzhou_V01.ma",
+      "relative_path": "Props/DuTaoqizi/Model/Model/Work/scenes/ma/prop_juanzhou_V01.ma",
+      "size": 1956169,
+      "mtime_ns": 1783606190803309600
+    },
+    {
+      "name": "prop_light.ma",
+      "name_key": "prop_light.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/DuTaoqizi/Model/Model/Work/scenes/ma/prop_light.ma",
+      "relative_path": "Props/DuTaoqizi/Model/Model/Work/scenes/ma/prop_light.ma",
+      "size": 4149352,
+      "mtime_ns": 1783606191009994700
+    },
+    {
+      "name": "prop_suipian_V01.ma",
+      "name_key": "prop_suipian_v01.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/DuTaoqizi/Model/Model/Work/scenes/ma/prop_suipian_V01.ma",
+      "relative_path": "Props/DuTaoqizi/Model/Model/Work/scenes/ma/prop_suipian_V01.ma",
+      "size": 858494,
+      "mtime_ns": 1783606190936609200
+    },
+    {
+      "name": "prop_suipian_V02.ma",
+      "name_key": "prop_suipian_v02.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/DuTaoqizi/Model/Model/Work/scenes/ma/prop_suipian_V02.ma",
+      "relative_path": "Props/DuTaoqizi/Model/Model/Work/scenes/ma/prop_suipian_V02.ma",
+      "size": 7706288,
+      "mtime_ns": 1783606192433800200
+    },
+    {
+      "name": "prop_V01.ma",
+      "name_key": "prop_v01.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/DuTaoqizi/Model/Model/Work/scenes/ma/prop_V01.ma",
+      "relative_path": "Props/DuTaoqizi/Model/Model/Work/scenes/ma/prop_V01.ma",
+      "size": 8365080,
+      "mtime_ns": 1783606191882687100
+    },
+    {
+      "name": "JDZ_Rig_dudaoqizi.ma",
+      "name_key": "jdz_rig_dudaoqizi.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/DuTaoqizi/Rig/Rig/Publish/JDZ_Rig_dudaoqizi.ma",
+      "relative_path": "Props/DuTaoqizi/Rig/Rig/Publish/JDZ_Rig_dudaoqizi.ma",
+      "size": 1633896,
+      "mtime_ns": 1783603543616240000
+    },
+    {
+      "name": "JDZ_Rig_dudaoqizi.ma",
+      "name_key": "jdz_rig_dudaoqizi.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/DuTaoqizi/Rig/Rig/Work/JDZ_Rig_dudaoqizi.ma",
+      "relative_path": "Props/DuTaoqizi/Rig/Rig/Work/JDZ_Rig_dudaoqizi.ma",
+      "size": 1634697,
+      "mtime_ns": 1783603545104474400
+    },
+    {
+      "name": "JDZ_Props_dudaoqizi.ma",
+      "name_key": "jdz_props_dudaoqizi.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/DuTaoqizi/Texture/Publish/JDZ_Props_dudaoqizi.ma",
+      "relative_path": "Props/DuTaoqizi/Texture/Publish/JDZ_Props_dudaoqizi.ma",
+      "size": 1514071,
+      "mtime_ns": 1783601303839047100
+    },
+    {
+      "name": "JDZ_Props_dudaoqizi.ma",
+      "name_key": "jdz_props_dudaoqizi.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/DuTaoqizi/Texture/Work/JDZ_Props_dudaoqizi.ma",
+      "relative_path": "Props/DuTaoqizi/Texture/Work/JDZ_Props_dudaoqizi.ma",
+      "size": 1514071,
+      "mtime_ns": 1783601305589771600
+    },
+    {
+      "name": "HongYingQiang_Prop_Mod_V002.ma",
+      "name_key": "hongyingqiang_prop_mod_v002.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/HongYingQiang/LookDev/LookDev/Publish/HongYingQiang_Prop_Mod_V002.ma",
+      "relative_path": "Props/HongYingQiang/LookDev/LookDev/Publish/HongYingQiang_Prop_Mod_V002.ma",
+      "size": 1013146,
+      "mtime_ns": 1783603589073048700
+    },
+    {
+      "name": "JuanZhou_prp_mod_hig.ma",
+      "name_key": "juanzhou_prp_mod_hig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/JuanZhou/Model/Model/Publish/History/JuanZhou_prp_mod_hig.ma",
+      "relative_path": "Props/JuanZhou/Model/Model/Publish/History/JuanZhou_prp_mod_hig.ma",
+      "size": 6099442,
+      "mtime_ns": 1783605494387045100
+    },
+    {
+      "name": "JuanZhou_prp_mod_hig.ma",
+      "name_key": "juanzhou_prp_mod_hig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/JuanZhou/Model/Model/Publish/JuanZhou_prp_mod_hig.ma",
+      "relative_path": "Props/JuanZhou/Model/Model/Publish/JuanZhou_prp_mod_hig.ma",
+      "size": 3073270,
+      "mtime_ns": 1783603710452491500
+    },
+    {
+      "name": "Juanzhou_props_v0001.ma",
+      "name_key": "juanzhou_props_v0001.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/JuanZhou/Model/Model/Work/Juanzhou_props_v0001.ma",
+      "relative_path": "Props/JuanZhou/Model/Model/Work/Juanzhou_props_v0001.ma",
+      "size": 1940159,
+      "mtime_ns": 1783603711065544500
+    },
+    {
+      "name": "Juanzhou_props_v0002.ma",
+      "name_key": "juanzhou_props_v0002.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/JuanZhou/Model/Model/Work/Juanzhou_props_v0002.ma",
+      "relative_path": "Props/JuanZhou/Model/Model/Work/Juanzhou_props_v0002.ma",
+      "size": 2945292,
+      "mtime_ns": 1783603711256095100
+    },
+    {
+      "name": "juanzhou06.ma",
+      "name_key": "juanzhou06.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/JuanZhou/Rig/Rig/Publish/juanzhou06.ma",
+      "relative_path": "Props/JuanZhou/Rig/Rig/Publish/juanzhou06.ma",
+      "size": 7155345,
+      "mtime_ns": 1783603774199225200
+    },
+    {
+      "name": "JuanZhou_prp_rig_hig.ma",
+      "name_key": "juanzhou_prp_rig_hig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/JuanZhou/Rig/Rig/Publish/JuanZhou_prp_rig_hig.ma",
+      "relative_path": "Props/JuanZhou/Rig/Rig/Publish/JuanZhou_prp_rig_hig.ma",
+      "size": 7205577,
+      "mtime_ns": 1783603774718093400
+    },
+    {
+      "name": "Juanzhou_props_rig.ma",
+      "name_key": "juanzhou_props_rig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/JuanZhou/Rig/Rig/Work/Juanzhou_props_rig.ma",
+      "relative_path": "Props/JuanZhou/Rig/Rig/Work/Juanzhou_props_rig.ma",
+      "size": 1965952,
+      "mtime_ns": 1783603775582365400
+    },
+    {
+      "name": "JuanZhou_prp_tex_hig.ma",
+      "name_key": "juanzhou_prp_tex_hig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/JuanZhou/Texture/Publish/JuanZhou_prp_tex_hig.ma",
+      "relative_path": "Props/JuanZhou/Texture/Publish/JuanZhou_prp_tex_hig.ma",
+      "size": 3073270,
+      "mtime_ns": 1783601475216397200
+    },
+    {
+      "name": "juanzhou_tex.0001.ma",
+      "name_key": "juanzhou_tex.0001.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/JuanZhou/Texture/Work/juanzhou_tex.0001.ma",
+      "relative_path": "Props/JuanZhou/Texture/Work/juanzhou_tex.0001.ma",
+      "size": 24277100,
+      "mtime_ns": 1783601481568189600
+    },
+    {
+      "name": "juanzhou_tex.ma",
+      "name_key": "juanzhou_tex.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/JuanZhou/Texture/Work/juanzhou_tex.ma",
+      "relative_path": "Props/JuanZhou/Texture/Work/juanzhou_tex.ma",
+      "size": 12624360,
+      "mtime_ns": 1783601478035922300
+    },
+    {
+      "name": "JDZ_LookDev_LongGang.ma",
+      "name_key": "jdz_lookdev_longgang.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/LongGang/LookDev/LookDev/Publish/JDZ_LookDev_LongGang.ma",
+      "relative_path": "Props/LongGang/LookDev/LookDev/Publish/JDZ_LookDev_LongGang.ma",
+      "size": 444512,
+      "mtime_ns": 1783603819900724900
+    },
+    {
+      "name": "LongGang_prp_mod_hig.ma",
+      "name_key": "longgang_prp_mod_hig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/LongGang/Model/Model/Publish/LongGang_prp_mod_hig.ma",
+      "relative_path": "Props/LongGang/Model/Model/Publish/LongGang_prp_mod_hig.ma",
+      "size": 437707,
+      "mtime_ns": 1783603823966282100
+    },
+    {
+      "name": "JDZ_Rig_LongGang.ma",
+      "name_key": "jdz_rig_longgang.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/LongGang/Rig/Publish/JDZ_Rig_LongGang.ma",
+      "relative_path": "Props/LongGang/Rig/Publish/JDZ_Rig_LongGang.ma",
+      "size": 482257,
+      "mtime_ns": 1783601555456028700
+    },
+    {
+      "name": "JDZ_Rig_LongGang.ma",
+      "name_key": "jdz_rig_longgang.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/LongGang/Rig/Rig/Publish/JDZ_Rig_LongGang.ma",
+      "relative_path": "Props/LongGang/Rig/Rig/Publish/JDZ_Rig_LongGang.ma",
+      "size": 483152,
+      "mtime_ns": 1783603887445048900
+    },
+    {
+      "name": "LongGang_prp_tex_hig.ma",
+      "name_key": "longgang_prp_tex_hig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/LongGang/Texture/Publish/LongGang_prp_tex_hig.ma",
+      "relative_path": "Props/LongGang/Texture/Publish/LongGang_prp_tex_hig.ma",
+      "size": 439789,
+      "mtime_ns": 1783601562344280800
+    },
+    {
+      "name": "LongGang.ma",
+      "name_key": "longgang.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/LongGang/Texture/Work/LongGang.ma",
+      "relative_path": "Props/LongGang/Texture/Work/LongGang.ma",
+      "size": 452793,
+      "mtime_ns": 1783601563851886000
+    },
+    {
+      "name": "LongGang_prp_tex_hig.ma",
+      "name_key": "longgang_prp_tex_hig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/LongGang/Texture/Work/LongGang_prp_tex_hig.ma",
+      "relative_path": "Props/LongGang/Texture/Work/LongGang_prp_tex_hig.ma",
+      "size": 452793,
+      "mtime_ns": 1783601569600195200
+    },
+    {
+      "name": "JDZ_LongGangcanpian_mod.ma",
+      "name_key": "jdz_longgangcanpian_mod.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/LongGangcanpian/Model/Model/Publish/JDZ_LongGangcanpian_mod.ma",
+      "relative_path": "Props/LongGangcanpian/Model/Model/Publish/JDZ_LongGangcanpian_mod.ma",
+      "size": 7080014,
+      "mtime_ns": 1783603939155425400
+    },
+    {
+      "name": "JDZ_Props_LongGangCanPian.ma",
+      "name_key": "jdz_props_longgangcanpian.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/LongGangcanpian/Model/Model/Publish/JDZ_Props_LongGangCanPian.ma",
+      "relative_path": "Props/LongGangcanpian/Model/Model/Publish/JDZ_Props_LongGangCanPian.ma",
+      "size": 849817,
+      "mtime_ns": 1783603938129133100
+    },
+    {
+      "name": "prop_LongGangCanPian.ma",
+      "name_key": "prop_longgangcanpian.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/LongGangcanpian/Model/Model/Publish/prop_LongGangCanPian.ma",
+      "relative_path": "Props/LongGangcanpian/Model/Model/Publish/prop_LongGangCanPian.ma",
+      "size": 852507,
+      "mtime_ns": 1783603938489743700
+    },
+    {
+      "name": "prop_LongGangCanPian.ma",
+      "name_key": "prop_longgangcanpian.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/LongGangcanpian/Model/Model/Work/prop_LongGangCanPian.ma",
+      "relative_path": "Props/LongGangcanpian/Model/Model/Work/prop_LongGangCanPian.ma",
+      "size": 849817,
+      "mtime_ns": 1783603939929135300
+    },
+    {
+      "name": "JDZ_Rig_LongGangCanPian.ma",
+      "name_key": "jdz_rig_longgangcanpian.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/LongGangcanpian/Rig/Publish/JDZ_Rig_LongGangCanPian.ma",
+      "relative_path": "Props/LongGangcanpian/Rig/Publish/JDZ_Rig_LongGangCanPian.ma",
+      "size": 431549,
+      "mtime_ns": 1783601643761722000
+    },
+    {
+      "name": "JDZ_Rig_LongGangCanPian.ma",
+      "name_key": "jdz_rig_longgangcanpian.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/LongGangcanpian/Rig/Rig/Publish/History/JDZ_Rig_LongGangCanPian.ma",
+      "relative_path": "Props/LongGangcanpian/Rig/Rig/Publish/History/JDZ_Rig_LongGangCanPian.ma",
+      "size": 431549,
+      "mtime_ns": 1783605701950346600
+    },
+    {
+      "name": "LongGangCanPian_prp_rig_hig.ma",
+      "name_key": "longgangcanpian_prp_rig_hig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/LongGangcanpian/Rig/Rig/Publish/History/LongGangCanPian_prp_rig_hig.ma",
+      "relative_path": "Props/LongGangcanpian/Rig/Rig/Publish/History/LongGangCanPian_prp_rig_hig.ma",
+      "size": 7852471,
+      "mtime_ns": 1783605705546468200
+    },
+    {
+      "name": "prop_LongGangCanPian_rig_v03.ma",
+      "name_key": "prop_longgangcanpian_rig_v03.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/LongGangcanpian/Rig/Rig/Publish/History/old/prop_LongGangCanPian_rig_v03.ma",
+      "relative_path": "Props/LongGangcanpian/Rig/Rig/Publish/History/old/prop_LongGangCanPian_rig_v03.ma",
+      "size": 849817,
+      "mtime_ns": 1783606325065478300
+    },
+    {
+      "name": "prop_LongGangCanPian.ma",
+      "name_key": "prop_longgangcanpian.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/LongGangcanpian/Rig/Rig/Publish/History/prop_LongGangCanPian.ma",
+      "relative_path": "Props/LongGangcanpian/Rig/Rig/Publish/History/prop_LongGangCanPian.ma",
+      "size": 852507,
+      "mtime_ns": 1783605702459679100
+    },
+    {
+      "name": "prop_LongGangCanPian.ma",
+      "name_key": "prop_longgangcanpian.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/LongGangcanpian/Rig/Rig/Publish/prop_LongGangCanPian.ma",
+      "relative_path": "Props/LongGangcanpian/Rig/Rig/Publish/prop_LongGangCanPian.ma",
+      "size": 7059042,
+      "mtime_ns": 1783604003099392400
+    },
+    {
+      "name": "LongGangCanPian_prp_tex_hig.ma",
+      "name_key": "longgangcanpian_prp_tex_hig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/LongGangcanpian/Texture/Publish/LongGangCanPian_prp_tex_hig.ma",
+      "relative_path": "Props/LongGangcanpian/Texture/Publish/LongGangCanPian_prp_tex_hig.ma",
+      "size": 7625537,
+      "mtime_ns": 1783601651623313900
+    },
+    {
+      "name": "QingBaiyouwan_prp_lookdev.ma",
+      "name_key": "qingbaiyouwan_prp_lookdev.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/QingBaiyouwan/LookDev/LookDev/Publish/QingBaiyouwan_prp_lookdev.ma",
+      "relative_path": "Props/QingBaiyouwan/LookDev/LookDev/Publish/QingBaiyouwan_prp_lookdev.ma",
+      "size": 445453,
+      "mtime_ns": 1783604044062045600
+    },
+    {
+      "name": "QingBaiyouwan_prp_mod_hig.ma",
+      "name_key": "qingbaiyouwan_prp_mod_hig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/QingBaiyouwan/Model/Model/Publish/History/20260624/QingBaiyouwan_prp_mod_hig.ma",
+      "relative_path": "Props/QingBaiyouwan/Model/Model/Publish/History/20260624/QingBaiyouwan_prp_mod_hig.ma",
+      "size": 215539,
+      "mtime_ns": 1783606323694272900
+    },
+    {
+      "name": "QingBaiyouwan_prp_mod_hig.ma",
+      "name_key": "qingbaiyouwan_prp_mod_hig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/QingBaiyouwan/Model/Model/Publish/QingBaiyouwan_prp_mod_hig.ma",
+      "relative_path": "Props/QingBaiyouwan/Model/Model/Publish/QingBaiyouwan_prp_mod_hig.ma",
+      "size": 493430,
+      "mtime_ns": 1783604047671902300
+    },
+    {
+      "name": "JDZ_Rig_QingBaiyouwan.ma",
+      "name_key": "jdz_rig_qingbaiyouwan.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/QingBaiyouwan/Rig/Publish/JDZ_Rig_QingBaiyouwan.ma",
+      "relative_path": "Props/QingBaiyouwan/Rig/Publish/JDZ_Rig_QingBaiyouwan.ma",
+      "size": 292759,
+      "mtime_ns": 1783601734019120000
+    },
+    {
+      "name": "QingBaiyouwan_prp_rig_hig.ma",
+      "name_key": "qingbaiyouwan_prp_rig_hig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/QingBaiyouwan/Rig/Rig/Publish/QingBaiyouwan_prp_rig_hig.ma",
+      "relative_path": "Props/QingBaiyouwan/Rig/Rig/Publish/QingBaiyouwan_prp_rig_hig.ma",
+      "size": 565115,
+      "mtime_ns": 1783604123545846300
+    },
+    {
+      "name": "QingBaiyouwan_prp_tex.ma",
+      "name_key": "qingbaiyouwan_prp_tex.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/QingBaiyouwan/Texture/Publish/QingBaiyouwan_prp_tex.ma",
+      "relative_path": "Props/QingBaiyouwan/Texture/Publish/QingBaiyouwan_prp_tex.ma",
+      "size": 519665,
+      "mtime_ns": 1783601740865029600
+    },
+    {
+      "name": "QingBaiyouwan_render.ma",
+      "name_key": "qingbaiyouwan_render.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/QingBaiyouwan/Texture/Work/QingBaiyouwan_render.ma",
+      "relative_path": "Props/QingBaiyouwan/Texture/Work/QingBaiyouwan_render.ma",
+      "size": 473613,
+      "mtime_ns": 1783601742409813600
+    },
+    {
+      "name": "JDZ_set_MaTou.ma",
+      "name_key": "jdz_set_matou.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Sets/MaTou/LookDev/LookDev/Publish/JDZ_set_MaTou.ma",
+      "relative_path": "Sets/MaTou/LookDev/LookDev/Publish/JDZ_set_MaTou.ma",
+      "size": 12338412534,
+      "mtime_ns": 1783410696832013800
+    }
+  ],
+  "errors": [],
+  "filter_extension": ".ma"
+}
