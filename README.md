@@ -44,6 +44,10 @@ SERVER_SCAN_ROOT = r"/Volumes/projects/JDZ/VFX/Assets/CGassets"
 WINDOWS_TARGET_ROOT = r"P:\JDZ\VFX\Assets\CGassets"
 REFERENCE_DEFER_VALUE = 0
 PREFERRED_REFERENCE_FOLDERS = ("Publish", "Approve")
+MAYA_REFERENCE_EXTENSIONS = (".ma", ".mb")
+REFERENCE_EXTENSION_FALLBACKS = {
+    ".ma": (".mb",),
+}
 
 DATA_FOLDER = "data"
 INPUT_FOLDER = "ori"
@@ -119,6 +123,31 @@ PREFERRED_REFERENCE_FOLDERS = ("Publish", "Approve")
 
 目录名匹配不区分大小写，可以根据其他项目的目录规范修改这个元组。
 
+### `.ma` 和 `.mb` 索引
+
+默认查找表同时包含 Maya ASCII 和 Maya Binary 文件：
+
+```python
+MAYA_REFERENCE_EXTENSIONS = (".ma", ".mb")
+```
+
+扩展名回退规则：
+
+```python
+REFERENCE_EXTENSION_FALLBACKS = {
+    ".ma": (".mb",),
+}
+```
+
+匹配顺序：
+
+1. 首先查找完全相同的文件名，例如 `Hero_Rig.ma`。
+2. 完全同名文件不存在时，才尝试同名 `Hero_Rig.mb`。
+3. 找到 `.mb` 后，引用路径会直接替换为 `.mb` 文件路径。
+4. 日志会显示 `[格式回退]`，方便确认哪些引用改变了扩展名。
+
+可以修改 `REFERENCE_EXTENSION_FALLBACKS` 来调整或关闭回退规则。
+
 ## 第一步：生成查找表
 
 在项目根目录运行。
@@ -145,7 +174,7 @@ data/ma_file.json
 ```
 
 - `server_files.json`：服务器中的完整文件列表。
-- `ma_file.json`：只包含 `.ma` 文件，默认用于路径替换。
+- `ma_file.json`：包含 `.ma` 和 `.mb` 文件，默认用于路径替换。
 
 建议每次批量转换前重新运行一次 `scan-server`，确保查找表是最新的。
 
@@ -195,6 +224,7 @@ python python_script\maya_path_rewriter.py batch --dry-run
 - 路径出现次数和所在行号
 - 缺失或冲突时为什么保留原路径
 - `-dr 1` 和 `-dr 0` 的修改数量与所在行号
+- 哪些 `.ma` 引用使用了同名 `.mb` 格式回退
 
 `--dry-run` 不会生成或修改任何 `.ma` 文件。
 
@@ -258,7 +288,9 @@ python3 python_script/maya_path_rewriter.py rewrite ori/example.ma --dry-run
 8. 仍然无法唯一确认时，保留原路径并打印候选列表。
 9. 根据 `REFERENCE_DEFER_VALUE` 修改实际引用命令的延迟加载状态。
 10. `file -rdi` 信息记录不会被加载状态规则修改。
-11. `.DS_Store` 和 `Thumbs.db` 不会写入查找表。
+11. 查找表同时索引 `.ma` 和 `.mb` 文件。
+12. `.ma` 精确文件名不存在时，可以回退到同名 `.mb`。
+13. `.DS_Store` 和 `Thumbs.db` 不会写入查找表。
 
 ## `data`、`ori` 和 `output` 的用途
 
@@ -266,7 +298,7 @@ python3 python_script/maya_path_rewriter.py rewrite ori/example.ma --dry-run
 
 保存服务器扫描结果。
 
-可以把已经生成的 `data/ma_file.json` 一起复制到没有服务器访问权限的电脑，然后直接执行路径转换。
+可以把已经生成的 `data/ma_file.json` 一起复制到没有服务器访问权限的电脑，然后直接执行路径转换。该文件同时包含 `.ma` 和 `.mb` 目标路径。
 
 ### `ori/`
 

@@ -38,6 +38,15 @@ REFERENCE_DEFER_VALUE: int | None = 0
 # 默认优先 Publish；旧项目没有 Publish 时，再选择 Approve。
 PREFERRED_REFERENCE_FOLDERS = ("Publish", "Approve")
 
+# 查找表中允许作为 Maya 引用目标的文件类型。
+MAYA_REFERENCE_EXTENSIONS = (".ma", ".mb")
+
+# 精确文件名不存在时允许的扩展名回退规则。
+# 例如 Hero_Rig.ma 找不到时，尝试查找同名 Hero_Rig.mb。
+REFERENCE_EXTENSION_FALLBACKS = {
+    ".ma": (".mb",),
+}
+
 # 项目内部目录和查找表文件名。全部相对于项目根目录。
 DATA_FOLDER = "data"
 INPUT_FOLDER = "ori"
@@ -91,6 +100,7 @@ class MatchResult(NamedTuple):
     path: str | None
     candidates: tuple[str, ...] = ()
     score: int | None = None
+    match_type: str = "exact"
 
 
 class DeferOccurrence(NamedTuple):
@@ -180,14 +190,29 @@ def filter_table_by_extension(
     extension: str,
 ) -> dict[str, Any]:
     """返回只包含指定扩展名的查找表。"""
-    normalized_extension = extension.casefold()
+    filtered = filter_table_by_extensions(table, (extension,))
+    filtered["filter_extension"] = filtered["filter_extensions"][0]
+    return filtered
+
+
+def filter_table_by_extensions(
+    table: dict[str, Any],
+    extensions: tuple[str, ...],
+) -> dict[str, Any]:
+    """返回包含指定多个扩展名的查找表。"""
+    normalized_extensions = tuple(
+        extension.casefold()
+        if extension.startswith(".")
+        else f".{extension.casefold()}"
+        for extension in extensions
+    )
     files = [
         item
         for item in table["files"]
-        if item["name_key"].endswith(normalized_extension)
+        if item["name_key"].endswith(normalized_extensions)
     ]
     filtered = dict(table)
-    filtered["filter_extension"] = normalized_extension
+    filtered["filter_extensions"] = list(normalized_extensions)
     filtered["file_count"] = len(files)
     filtered["files"] = files
     return filtered
@@ -379,7 +404,7 @@ def _decode_maya_string(value: str) -> str:
 
 def _looks_like_ma_path(value: str) -> bool:
     normalized = COPY_NUMBER_SUFFIX.sub("", maya_path(value).strip())
-    return normalized.casefold().endswith(".ma")
+    return normalized.casefold().endswith(MAYA_REFERENCE_EXTENSIONS)
 
 
 def _path_occurrence(
@@ -401,7 +426,7 @@ def _path_occurrence(
 
 
 def scan_maya_text(text: str) -> list[PathOccurrence]:
-    """扫描 Maya ASCII，只定位场景引用和 reference 节点的 .ma 路径。"""
+    """扫描 Maya ASCII，只定位场景引用和 reference 节点的 Maya 路径。"""
     occurrences: list[PathOccurrence] = []
     current_node_type: str | None = None
 
@@ -451,6 +476,18 @@ def _filename_key(path: str) -> str:
     return COPY_NUMBER_SUFFIX.sub("", filename).casefold()
 
 
+def _fallback_filename_keys(path: str) -> tuple[str, ...]:
+    filename_key = _filename_key(path)
+    suffix = Path(filename_key).suffix.casefold()
+    if not suffix:
+        return ()
+    stem = filename_key[: -len(suffix)]
+    return tuple(
+        f"{stem}{fallback_extension.casefold()}"
+        for fallback_extension in REFERENCE_EXTENSION_FALLBACKS.get(suffix, ())
+    )
+
+
 def _parent_parts(path: str, strip_publish_directory: bool) -> list[str]:
     normalized = COPY_NUMBER_SUFFIX.sub("", maya_path(path).strip())
     parts = [part.casefold() for part in normalized.split("/") if part]
@@ -478,25 +515,43 @@ def _suffix_score(old_path: str, candidate_path: str) -> int:
 def match_asset(old_path: str, table: dict[str, Any]) -> MatchResult:
     """按文件名匹配；重名时用父目录尾部判断，仍并列则不修改。"""
     filename_key = _filename_key(old_path)
-    unique_candidates: dict[str, str] = {}
+    match_type = "exact"
 
-    for item in table.get("files", []):
-        item_key = str(item.get("name_key") or item.get("name", "")).casefold()
-        if item_key != filename_key:
-            continue
-        candidate = maya_path(str(item["windows_path"]))
-        unique_candidates.setdefault(candidate.casefold(), candidate)
+    def collect_candidates(candidate_key: str) -> dict[str, str]:
+        found: dict[str, str] = {}
+        for item in table.get("files", []):
+            item_key = str(
+                item.get("name_key") or item.get("name", "")
+            ).casefold()
+            if item_key != candidate_key:
+                continue
+            candidate = maya_path(str(item["windows_path"]))
+            found.setdefault(candidate.casefold(), candidate)
+        return found
+
+    unique_candidates = collect_candidates(filename_key)
+    if not unique_candidates:
+        for fallback_key in _fallback_filename_keys(old_path):
+            unique_candidates = collect_candidates(fallback_key)
+            if unique_candidates:
+                match_type = "extension-fallback"
+                break
 
     candidates = tuple(
         sorted(unique_candidates.values(), key=lambda value: value.casefold())
     )
     if not candidates:
-        return MatchResult(status="missing", path=None)
+        return MatchResult(
+            status="missing",
+            path=None,
+            match_type="missing",
+        )
     if len(candidates) == 1:
         return MatchResult(
             status="matched",
             path=candidates[0],
             candidates=candidates,
+            match_type=match_type,
         )
 
     scored = [(_suffix_score(old_path, candidate), candidate) for candidate in candidates]
@@ -523,6 +578,7 @@ def match_asset(old_path: str, table: dict[str, Any]) -> MatchResult:
                     path=preferred_winners[0],
                     candidates=candidates,
                     score=highest_score,
+                    match_type=match_type,
                 )
             if len(preferred_winners) > 1:
                 break
@@ -531,6 +587,7 @@ def match_asset(old_path: str, table: dict[str, Any]) -> MatchResult:
             path=None,
             candidates=candidates,
             score=highest_score,
+            match_type=match_type,
         )
 
     return MatchResult(
@@ -538,6 +595,7 @@ def match_asset(old_path: str, table: dict[str, Any]) -> MatchResult:
         path=winners[0],
         candidates=candidates,
         score=highest_score,
+        match_type=match_type,
     )
 
 
@@ -603,6 +661,7 @@ def rewrite_maya_text(
                 "new_path": result.path,
                 "candidates": list(result.candidates),
                 "score": result.score,
+                "match_type": result.match_type,
             }
         )
 
@@ -634,6 +693,12 @@ def rewrite_maya_text(
         "matched": counts["matched"],
         "conflict": counts["conflict"],
         "missing": counts["missing"],
+        "extension_fallback": sum(
+            1
+            for item in items
+            if item["status"] == "matched"
+            and item["match_type"] == "extension-fallback"
+        ),
         "changed": sum(
             1
             for item in items
@@ -667,7 +732,7 @@ def _status_label(status: str) -> str:
 def _group_report_items(report: dict[str, Any]) -> list[dict[str, Any]]:
     """按状态和路径合并同一文件内的重复操作。"""
     grouped: dict[
-        tuple[str, str, str | None, tuple[str, ...]],
+        tuple[str, str, str | None, tuple[str, ...], str],
         dict[str, Any],
     ] = {}
     for item in report["items"]:
@@ -676,6 +741,7 @@ def _group_report_items(report: dict[str, Any]) -> list[dict[str, Any]]:
             item["old_path"],
             item["new_path"],
             tuple(item["candidates"]),
+            item.get("match_type", "exact"),
         )
         group = grouped.setdefault(
             key,
@@ -686,6 +752,7 @@ def _group_report_items(report: dict[str, Any]) -> list[dict[str, Any]]:
                 "old_path": item["old_path"],
                 "new_path": item["new_path"],
                 "candidates": item["candidates"],
+                "match_type": item.get("match_type", "exact"),
             },
         )
         group["count"] += 1
@@ -696,7 +763,7 @@ def _group_report_items(report: dict[str, Any]) -> list[dict[str, Any]]:
 def print_rewrite_report(report: dict[str, Any]) -> None:
     """用中文打印按旧路径合并后的替换报告。"""
     grouped: dict[
-        tuple[str, str, str | None, tuple[str, ...]],
+        tuple[str, str, str | None, tuple[str, ...], str],
         dict[str, Any],
     ] = {}
     for item in report["items"]:
@@ -705,6 +772,7 @@ def print_rewrite_report(report: dict[str, Any]) -> None:
             item["old_path"],
             item["new_path"],
             tuple(item["candidates"]),
+            item.get("match_type", "exact"),
         )
         group = grouped.setdefault(
             key,
@@ -715,6 +783,7 @@ def print_rewrite_report(report: dict[str, Any]) -> None:
                 "old_path": item["old_path"],
                 "new_path": item["new_path"],
                 "candidates": item["candidates"],
+                "match_type": item.get("match_type", "exact"),
             },
         )
         group["count"] += 1
@@ -726,8 +795,9 @@ def print_rewrite_report(report: dict[str, Any]) -> None:
             f"编码 {report['encoding']}；后续正文不解析"
         )
     print(
-        "扫描到 {scanned} 处 .ma 路径：匹配 {matched}，"
+        "扫描到 {scanned} 处 Maya 路径：匹配 {matched}，"
         "冲突 {conflict}，缺失 {missing}，实际修改 {changed}，"
+        "格式回退 {extension_fallback}，"
         "加载状态修改 {defer_changed}".format(**report)
     )
     if report["defer_changes"]:
@@ -743,9 +813,15 @@ def print_rewrite_report(report: dict[str, Any]) -> None:
             )
     for group in grouped.values():
         lines = ", ".join(str(line) for line in group["lines"])
+        status_label = _status_label(group["status"])
+        if (
+            group["status"] == "matched"
+            and group["match_type"] == "extension-fallback"
+        ):
+            status_label = "格式回退"
         print(
-            f"[{_status_label(group['status'])}] "
-            f"{group['old_path']}  (出现 {group['count']} 次，行 {lines})"
+            f"[{status_label}] {group['old_path']}  "
+            f"(出现 {group['count']} 次，行 {lines})"
         )
         if group["new_path"]:
             print(f"  -> {group['new_path']}")
@@ -839,6 +915,7 @@ def rewrite_directory(
         "matched": 0,
         "conflict": 0,
         "missing": 0,
+        "extension_fallback": 0,
         "changed": 0,
         "defer_changed": 0,
         "files": [],
@@ -873,6 +950,7 @@ def rewrite_directory(
             "matched",
             "conflict",
             "missing",
+            "extension_fallback",
             "changed",
             "defer_changed",
         ):
@@ -905,6 +983,7 @@ def print_batch_report(summary: dict[str, Any], dry_run: bool) -> None:
             f"  文件汇总："
             f"修改 {report['changed']}，缺失 {report['missing']}，"
             f"冲突 {report['conflict']}，扫描路径 {report['scanned']}，"
+            f"格式回退 {report.get('extension_fallback', 0)}，"
             f"加载状态修改 {report.get('defer_changed', 0)}"
         )
         print(
@@ -928,10 +1007,18 @@ def print_batch_report(summary: dict[str, Any], dry_run: bool) -> None:
             lines = ", ".join(str(line) for line in group["lines"])
             location = f"出现 {group['count']} 次，行 {lines}"
             if group["status"] == "matched":
+                operation_label = (
+                    "格式回退"
+                    if group["match_type"] == "extension-fallback"
+                    else "替换"
+                )
                 if group["new_path"] == group["old_path"]:
                     print(f"  [无需修改] {group['old_path']}  ({location})")
                 else:
-                    print(f"  [替换] {group['old_path']}  ({location})")
+                    print(
+                        f"  [{operation_label}] "
+                        f"{group['old_path']}  ({location})"
+                    )
                     print(f"    -> {group['new_path']}")
                 continue
 
@@ -951,6 +1038,7 @@ def print_batch_report(summary: dict[str, Any], dry_run: bool) -> None:
         f"成功 {summary['processed']}，失败 {summary['failed']}，"
         f"修改 {summary['changed']}，缺失 {summary['missing']}，"
         f"冲突 {summary['conflict']}，"
+        f"格式回退 {summary.get('extension_fallback', 0)}，"
         f"加载状态修改 {summary.get('defer_changed', 0)}"
     )
     if dry_run:
@@ -990,7 +1078,10 @@ def build_parser() -> argparse.ArgumentParser:
         "--ma-table",
         type=Path,
         default=DEFAULT_MA_TABLE_PATH,
-        help=f"仅包含 .ma 文件的 JSON 输出路径，默认: {DEFAULT_MA_TABLE_PATH}",
+        help=(
+            "包含 .ma/.mb 文件的 Maya JSON 输出路径，"
+            f"默认: {DEFAULT_MA_TABLE_PATH}"
+        ),
     )
 
     scan_ma_parser = subparsers.add_parser(
@@ -1008,7 +1099,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--table",
         type=Path,
         default=DEFAULT_REWRITE_TABLE_PATH,
-        help=f".ma 查找表，默认: {DEFAULT_REWRITE_TABLE_PATH}",
+        help=f"Maya (.ma/.mb) 查找表，默认: {DEFAULT_REWRITE_TABLE_PATH}",
     )
     rewrite_parser.add_argument(
         "--output",
@@ -1041,7 +1132,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--table",
         type=Path,
         default=DEFAULT_REWRITE_TABLE_PATH,
-        help=f".ma 查找表，默认: {DEFAULT_REWRITE_TABLE_PATH}",
+        help=f"Maya (.ma/.mb) 查找表，默认: {DEFAULT_REWRITE_TABLE_PATH}",
     )
     batch_parser.add_argument(
         "--dry-run",
@@ -1056,15 +1147,22 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "scan-server":
         table = scan_server(args.mac_root, args.windows_root)
-        ma_table = filter_table_by_extension(table, ".ma")
+        ma_table = filter_table_by_extensions(
+            table,
+            MAYA_REFERENCE_EXTENSIONS,
+        )
         save_table(table, args.table, args.mac_root)
         save_table(ma_table, args.ma_table, args.mac_root)
         print(f"扫描完成: {table['file_count']} 个文件")
-        print(f"其中 .ma 文件: {ma_table['file_count']} 个")
+        print(
+            "其中 Maya 引用文件 "
+            f"({', '.join(MAYA_REFERENCE_EXTENSIONS)}): "
+            f"{ma_table['file_count']} 个"
+        )
         print(f"读取错误: {table['error_count']}")
         print(f"Windows 根路径: {table['windows_root']}")
         print(f"完整查找表: {args.table.expanduser().absolute()}")
-        print(f".ma 查找表: {args.ma_table.expanduser().absolute()}")
+        print(f"Maya 查找表: {args.ma_table.expanduser().absolute()}")
         return 0
 
     if args.command == "scan-ma":
@@ -1076,7 +1174,7 @@ def main(argv: list[str] | None = None) -> int:
             f"只扫描文件头 {len(header_bytes)} 字节，编码 {encoding}；"
             f"正文从字节 {body_offset} 开始，不解析"
         )
-        print(f"扫描到 {len(occurrences)} 处 .ma 引用路径")
+        print(f"扫描到 {len(occurrences)} 处 Maya 引用路径")
         for occurrence in occurrences:
             print(
                 f"行 {occurrence.line} [{occurrence.kind}] "

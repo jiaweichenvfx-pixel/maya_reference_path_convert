@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "generated_at": "2026-07-10T07:19:38.807716+00:00",
+  "generated_at": "2026-07-10T08:17:32.132325+00:00",
   "mac_root": "/Volumes/projects/JDZ/VFX/Assets/CGassets",
   "windows_root": "P:/JDZ/VFX/Assets/CGassets",
-  "file_count": 2769,
+  "file_count": 2796,
   "error_count": 0,
   "files": [
     {
@@ -391,6 +391,14 @@
       "mtime_ns": 1783601862720619600
     },
     {
+      "name": "Eyeball_MT_bump_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "name_key": "eyeball_mt_bump_utility - srgb - texture_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/Eyeball_MT_bump_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "relative_path": "Characters/ChengXin/Texture/Publish/texture/Eyeball_MT_bump_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "size": 253639,
+      "mtime_ns": 1783601863000000000
+    },
+    {
       "name": "Eyeball_MT_C.tga",
       "name_key": "eyeball_mt_c.tga",
       "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/Eyeball_MT_C.tga",
@@ -405,6 +413,14 @@
       "relative_path": "Characters/ChengXin/Texture/Publish/texture/Eyeball_MT_C_Utility - sRGB - Texture_ACES - ACEScg.tga.tx",
       "size": 779201,
       "mtime_ns": 1783601863181360100
+    },
+    {
+      "name": "Eyeball_MT_C_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "name_key": "eyeball_mt_c_utility - srgb - texture_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/Eyeball_MT_C_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "relative_path": "Characters/ChengXin/Texture/Publish/texture/Eyeball_MT_C_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "size": 669591,
+      "mtime_ns": 1783601863000000000
     },
     {
       "name": "Iris_BaseColor.jpg",
@@ -423,6 +439,14 @@
       "mtime_ns": 1783601863284436200
     },
     {
+      "name": "Iris_BaseColor_Utility - Raw_ACEScg.jpg.tx",
+      "name_key": "iris_basecolor_utility - raw_acescg.jpg.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/Iris_BaseColor_Utility - Raw_ACEScg.jpg.tx",
+      "relative_path": "Characters/ChengXin/Texture/Publish/texture/Iris_BaseColor_Utility - Raw_ACEScg.jpg.tx",
+      "size": 2846499,
+      "mtime_ns": 1783601863000000000
+    },
+    {
       "name": "Iris_Bump.jpg",
       "name_key": "iris_bump.jpg",
       "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/Iris_Bump.jpg",
@@ -437,6 +461,14 @@
       "relative_path": "Characters/ChengXin/Texture/Publish/texture/Iris_Bump_Raw_ACES - ACEScg.jpg.tx",
       "size": 2221896,
       "mtime_ns": 1783601863308599700
+    },
+    {
+      "name": "Iris_Bump_Raw_ACEScg.jpg.tx",
+      "name_key": "iris_bump_raw_acescg.jpg.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/Iris_Bump_Raw_ACEScg.jpg.tx",
+      "relative_path": "Characters/ChengXin/Texture/Publish/texture/Iris_Bump_Raw_ACEScg.jpg.tx",
+      "size": 1478868,
+      "mtime_ns": 1783601862000000000
     },
     {
       "name": "Iris_Disp.jpg",
@@ -455,6 +487,14 @@
       "mtime_ns": 1783601863202311100
     },
     {
+      "name": "Iris_Disp_Raw_ACEScg.jpg.tx",
+      "name_key": "iris_disp_raw_acescg.jpg.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/Iris_Disp_Raw_ACEScg.jpg.tx",
+      "relative_path": "Characters/ChengXin/Texture/Publish/texture/Iris_Disp_Raw_ACEScg.jpg.tx",
+      "size": 1112862,
+      "mtime_ns": 1783601862000000000
+    },
+    {
       "name": "T_NPCChengxin_01_Body_D.tga",
       "name_key": "t_npcchengxin_01_body_d.tga",
       "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Body_D.tga",
@@ -469,6 +509,14 @@
       "relative_path": "Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Body_D_Utility - sRGB - Texture_ACES - ACEScg.tga.tx",
       "size": 4768251,
       "mtime_ns": 1783601863534297900
+    },
+    {
+      "name": "T_NPCChengxin_01_Body_D_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "name_key": "t_npcchengxin_01_body_d_utility - srgb - texture_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Body_D_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "relative_path": "Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Body_D_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "size": 3988952,
+      "mtime_ns": 1783601870000000000
     },
     {
       "name": "T_NPCChengxin_01_Body_N.tga",
@@ -487,6 +535,14 @@
       "mtime_ns": 1783601867863003600
     },
     {
+      "name": "T_NPCChengxin_01_Body_N_Utility - Raw_ACEScg.tga.tx",
+      "name_key": "t_npcchengxin_01_body_n_utility - raw_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Body_N_Utility - Raw_ACEScg.tga.tx",
+      "relative_path": "Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Body_N_Utility - Raw_ACEScg.tga.tx",
+      "size": 14632127,
+      "mtime_ns": 1783601874000000000
+    },
+    {
       "name": "T_NPCChengxin_01_Body_RMA.tga",
       "name_key": "t_npcchengxin_01_body_rma.tga",
       "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Body_RMA.tga",
@@ -501,6 +557,14 @@
       "relative_path": "Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Body_RMA_ACES - ACES2065-1_ACES - ACEScg.tga.tx",
       "size": 23730457,
       "mtime_ns": 1783601876927212400
+    },
+    {
+      "name": "T_NPCChengxin_01_Body_RMA_ACES - ACES2065-1_ACEScg.tga.tx",
+      "name_key": "t_npcchengxin_01_body_rma_aces - aces2065-1_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Body_RMA_ACES - ACES2065-1_ACEScg.tga.tx",
+      "relative_path": "Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Body_RMA_ACES - ACES2065-1_ACEScg.tga.tx",
+      "size": 17399078,
+      "mtime_ns": 1783601869000000000
     },
     {
       "name": "T_NPCChengxin_01_Cloth_D.tga",
@@ -519,6 +583,14 @@
       "mtime_ns": 1783601899672012600
     },
     {
+      "name": "T_NPCChengxin_01_Cloth_D_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "name_key": "t_npcchengxin_01_cloth_d_utility - srgb - texture_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Cloth_D_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "relative_path": "Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Cloth_D_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "size": 26056152,
+      "mtime_ns": 1783601872000000000
+    },
+    {
       "name": "T_NPCChengxin_01_Cloth_N.tga",
       "name_key": "t_npcchengxin_01_cloth_n.tga",
       "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Cloth_N.tga",
@@ -535,6 +607,14 @@
       "mtime_ns": 1783601870044879400
     },
     {
+      "name": "T_NPCChengxin_01_Cloth_N_Utility - Raw_ACEScg.tga.tx",
+      "name_key": "t_npcchengxin_01_cloth_n_utility - raw_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Cloth_N_Utility - Raw_ACEScg.tga.tx",
+      "relative_path": "Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Cloth_N_Utility - Raw_ACEScg.tga.tx",
+      "size": 63453433,
+      "mtime_ns": 1783601883000000000
+    },
+    {
       "name": "T_NPCChengxin_01_Cloth_RMA.tga",
       "name_key": "t_npcchengxin_01_cloth_rma.tga",
       "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Cloth_RMA.tga",
@@ -549,6 +629,14 @@
       "relative_path": "Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Cloth_RMA_ACES - ACES2065-1_ACES - ACEScg.tga.tx",
       "size": 18937624,
       "mtime_ns": 1783601873508073100
+    },
+    {
+      "name": "T_NPCChengxin_01_Cloth_RMA_ACES - ACES2065-1_ACEScg.tga.tx",
+      "name_key": "t_npcchengxin_01_cloth_rma_aces - aces2065-1_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Cloth_RMA_ACES - ACES2065-1_ACEScg.tga.tx",
+      "relative_path": "Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Cloth_RMA_ACES - ACES2065-1_ACEScg.tga.tx",
+      "size": 26832859,
+      "mtime_ns": 1783601880000000000
     },
     {
       "name": "T_NPCChengxin_01_Eye_D.tga",
@@ -591,6 +679,14 @@
       "mtime_ns": 1783601877652171800
     },
     {
+      "name": "T_NPCChengxin_01_Head_D_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "name_key": "t_npcchengxin_01_head_d_utility - srgb - texture_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Head_D_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "relative_path": "Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Head_D_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "size": 12293799,
+      "mtime_ns": 1783601877000000000
+    },
+    {
       "name": "T_NPCChengxin_01_Head_N.tga",
       "name_key": "t_npcchengxin_01_head_n.tga",
       "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Head_N.tga",
@@ -605,6 +701,14 @@
       "relative_path": "Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Head_N_Utility - Raw_ACES - ACEScg.tga.tx",
       "size": 19823712,
       "mtime_ns": 1783601890641621100
+    },
+    {
+      "name": "T_NPCChengxin_01_Head_N_Utility - Raw_ACEScg.tga.tx",
+      "name_key": "t_npcchengxin_01_head_n_utility - raw_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Head_N_Utility - Raw_ACEScg.tga.tx",
+      "relative_path": "Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Head_N_Utility - Raw_ACEScg.tga.tx",
+      "size": 17671917,
+      "mtime_ns": 1783601888000000000
     },
     {
       "name": "T_NPCChengxin_01_Head_RMA.tga",
@@ -623,6 +727,14 @@
       "mtime_ns": 1783601880692659000
     },
     {
+      "name": "T_NPCChengxin_01_Head_RMA_Utility - Raw_ACEScg.tga.tx",
+      "name_key": "t_npcchengxin_01_head_rma_utility - raw_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Head_RMA_Utility - Raw_ACEScg.tga.tx",
+      "relative_path": "Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Head_RMA_Utility - Raw_ACEScg.tga.tx",
+      "size": 10590446,
+      "mtime_ns": 1783601882000000000
+    },
+    {
       "name": "T_NPCChengxin_01_Teeth_D.tga",
       "name_key": "t_npcchengxin_01_teeth_d.tga",
       "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Teeth_D.tga",
@@ -639,6 +751,14 @@
       "mtime_ns": 1783601879199992700
     },
     {
+      "name": "T_NPCChengxin_01_Teeth_D_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "name_key": "t_npcchengxin_01_teeth_d_utility - srgb - texture_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Teeth_D_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "relative_path": "Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Teeth_D_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "size": 10522575,
+      "mtime_ns": 1783601883000000000
+    },
+    {
       "name": "T_NPCChengxin_01_Teeth_N.tga",
       "name_key": "t_npcchengxin_01_teeth_n.tga",
       "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Teeth_N.tga",
@@ -653,6 +773,14 @@
       "relative_path": "Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Teeth_N_Utility - Raw_ACES - ACEScg.tga.tx",
       "size": 11305228,
       "mtime_ns": 1783601885220741300
+    },
+    {
+      "name": "T_NPCChengxin_01_Teeth_N_Utility - Raw_ACEScg.tga.tx",
+      "name_key": "t_npcchengxin_01_teeth_n_utility - raw_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Teeth_N_Utility - Raw_ACEScg.tga.tx",
+      "relative_path": "Characters/ChengXin/Texture/Publish/texture/T_NPCChengxin_01_Teeth_N_Utility - Raw_ACEScg.tga.tx",
+      "size": 11071583,
+      "mtime_ns": 1783601883000000000
     },
     {
       "name": "T_NPCChengxin_01_Teeth_RMA.tga",
@@ -677,6 +805,14 @@
       "relative_path": "Characters/ChengXin/Texture/Publish/texture/T_NPCWeiyan_01_Hair_A_Utility - Raw_ACES - ACEScg.png.tx",
       "size": 3293032,
       "mtime_ns": 1783601882752168700
+    },
+    {
+      "name": "T_NPCWeiyan_01_Hair_A_Utility - Raw_ACEScg.png.tx",
+      "name_key": "t_npcweiyan_01_hair_a_utility - raw_acescg.png.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/ChengXin/Texture/Publish/texture/T_NPCWeiyan_01_Hair_A_Utility - Raw_ACEScg.png.tx",
+      "relative_path": "Characters/ChengXin/Texture/Publish/texture/T_NPCWeiyan_01_Hair_A_Utility - Raw_ACEScg.png.tx",
+      "size": 3136944,
+      "mtime_ns": 1783601881000000000
     },
     {
       "name": "T_NPCWeiyan_01_Hair_D.tga",
@@ -8327,6 +8463,14 @@
       "mtime_ns": 1783602987125181400
     },
     {
+      "name": "Eyeball_MT_bump_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "name_key": "eyeball_mt_bump_utility - srgb - texture_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Texture/Publish/texture/Eyeball_MT_bump_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "relative_path": "Characters/WeiYan/Texture/Publish/texture/Eyeball_MT_bump_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "size": 253631,
+      "mtime_ns": 1783602987000000000
+    },
+    {
       "name": "Eyeball_MT_C.tga",
       "name_key": "eyeball_mt_c.tga",
       "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Texture/Publish/texture/Eyeball_MT_C.tga",
@@ -8341,6 +8485,14 @@
       "relative_path": "Characters/WeiYan/Texture/Publish/texture/Eyeball_MT_C_Utility - sRGB - Texture_ACES - ACEScg.tga.tx",
       "size": 779293,
       "mtime_ns": 1783602988544014900
+    },
+    {
+      "name": "Eyeball_MT_C_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "name_key": "eyeball_mt_c_utility - srgb - texture_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Texture/Publish/texture/Eyeball_MT_C_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "relative_path": "Characters/WeiYan/Texture/Publish/texture/Eyeball_MT_C_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "size": 669583,
+      "mtime_ns": 1783602987000000000
     },
     {
       "name": "face_col01.png",
@@ -8527,6 +8679,14 @@
       "mtime_ns": 1783603022867523500
     },
     {
+      "name": "Iris_BaseColor_Utility - Raw_ACEScg.jpg.tx",
+      "name_key": "iris_basecolor_utility - raw_acescg.jpg.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Texture/Publish/texture/Iris_BaseColor_Utility - Raw_ACEScg.jpg.tx",
+      "relative_path": "Characters/WeiYan/Texture/Publish/texture/Iris_BaseColor_Utility - Raw_ACEScg.jpg.tx",
+      "size": 2846491,
+      "mtime_ns": 1783603023000000000
+    },
+    {
       "name": "Iris_Bump.jpg",
       "name_key": "iris_bump.jpg",
       "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Texture/Publish/texture/Iris_Bump.jpg",
@@ -8639,6 +8799,14 @@
       "mtime_ns": 1783603027174186100
     },
     {
+      "name": "T_NPCWeiyan_01_Body_D_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "name_key": "t_npcweiyan_01_body_d_utility - srgb - texture_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Texture/Publish/texture/T_NPCWeiyan_01_Body_D_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "relative_path": "Characters/WeiYan/Texture/Publish/texture/T_NPCWeiyan_01_Body_D_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "size": 2242114,
+      "mtime_ns": 1783603039000000000
+    },
+    {
       "name": "T_NPCWeiyan_01_Body_N.tga",
       "name_key": "t_npcweiyan_01_body_n.tga",
       "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Texture/Publish/texture/T_NPCWeiyan_01_Body_N.tga",
@@ -8655,6 +8823,14 @@
       "mtime_ns": 1783603032294230100
     },
     {
+      "name": "T_NPCWeiyan_01_Body_N_Utility - Raw_ACEScg.tga.tx",
+      "name_key": "t_npcweiyan_01_body_n_utility - raw_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Texture/Publish/texture/T_NPCWeiyan_01_Body_N_Utility - Raw_ACEScg.tga.tx",
+      "relative_path": "Characters/WeiYan/Texture/Publish/texture/T_NPCWeiyan_01_Body_N_Utility - Raw_ACEScg.tga.tx",
+      "size": 15794868,
+      "mtime_ns": 1783603038000000000
+    },
+    {
       "name": "T_NPCWeiyan_01_Body_RMA.tga",
       "name_key": "t_npcweiyan_01_body_rma.tga",
       "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Texture/Publish/texture/T_NPCWeiyan_01_Body_RMA.tga",
@@ -8669,6 +8845,14 @@
       "relative_path": "Characters/WeiYan/Texture/Publish/texture/T_NPCWeiyan_01_Body_RMA_ACES - ACES2065-1_ACES - ACEScg.tga.tx",
       "size": 11854772,
       "mtime_ns": 1783603031588848000
+    },
+    {
+      "name": "T_NPCWeiyan_01_Body_RMA_ACES - ACES2065-1_ACEScg.tga.tx",
+      "name_key": "t_npcweiyan_01_body_rma_aces - aces2065-1_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Texture/Publish/texture/T_NPCWeiyan_01_Body_RMA_ACES - ACES2065-1_ACEScg.tga.tx",
+      "relative_path": "Characters/WeiYan/Texture/Publish/texture/T_NPCWeiyan_01_Body_RMA_ACES - ACES2065-1_ACEScg.tga.tx",
+      "size": 6024018,
+      "mtime_ns": 1783603034000000000
     },
     {
       "name": "T_NPCWeiyan_01_Body_SC.tga",
@@ -8855,6 +9039,14 @@
       "mtime_ns": 1783603048573768300
     },
     {
+      "name": "T_NPCWeiyan_01_Head_D_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "name_key": "t_npcweiyan_01_head_d_utility - srgb - texture_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Texture/Publish/texture/T_NPCWeiyan_01_Head_D_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "relative_path": "Characters/WeiYan/Texture/Publish/texture/T_NPCWeiyan_01_Head_D_Utility - sRGB - Texture_ACEScg.tga.tx",
+      "size": 17676136,
+      "mtime_ns": 1783603082000000000
+    },
+    {
       "name": "T_NPCWeiyan_01_Head_N.tga",
       "name_key": "t_npcweiyan_01_head_n.tga",
       "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Texture/Publish/texture/T_NPCWeiyan_01_Head_N.tga",
@@ -8869,6 +9061,14 @@
       "relative_path": "Characters/WeiYan/Texture/Publish/texture/T_NPCWeiyan_01_Head_N_Utility - Raw_ACES - ACEScg.tga.tx",
       "size": 27576692,
       "mtime_ns": 1783603063865087500
+    },
+    {
+      "name": "T_NPCWeiyan_01_Head_N_Utility - Raw_ACEScg.tga.tx",
+      "name_key": "t_npcweiyan_01_head_n_utility - raw_acescg.tga.tx",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Characters/WeiYan/Texture/Publish/texture/T_NPCWeiyan_01_Head_N_Utility - Raw_ACEScg.tga.tx",
+      "relative_path": "Characters/WeiYan/Texture/Publish/texture/T_NPCWeiyan_01_Head_N_Utility - Raw_ACEScg.tga.tx",
+      "size": 27268178,
+      "mtime_ns": 1783603058000000000
     },
     {
       "name": "T_NPCWeiyan_01_Head_RMA.tga",
@@ -10301,6 +10501,14 @@
       "relative_path": "Props/BianDan/Texture/Publish/textures/MRLN_BasketN.jpg",
       "size": 1029654,
       "mtime_ns": 1783603224112136100
+    },
+    {
+      "name": "Boat02_Scene_V006_Rig.ma",
+      "name_key": "boat02_scene_v006_rig.ma",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Props/Boat02/Boat02_Scene_V006_Rig.ma",
+      "relative_path": "Props/Boat02/Boat02_Scene_V006_Rig.ma",
+      "size": 214899577,
+      "mtime_ns": 1783497508840045000
     },
     {
       "name": "jdz_build.blend",
@@ -15405,6 +15613,14 @@
       "relative_path": "Props/QingBaiyouwan/Texture/Work/sucai/mask.png",
       "size": 5166831,
       "mtime_ns": 1783604142665099900
+    },
+    {
+      "name": "JDZ_env_0608.mb",
+      "name_key": "jdz_env_0608.mb",
+      "windows_path": "P:/JDZ/VFX/Assets/CGassets/Sets/JDZ_env_0608/JDZ_env_0608.mb",
+      "relative_path": "Sets/JDZ_env_0608/JDZ_env_0608.mb",
+      "size": 3299267496,
+      "mtime_ns": 1780825899456663100
     },
     {
       "name": "JDZ_set_MaTou.ma",
