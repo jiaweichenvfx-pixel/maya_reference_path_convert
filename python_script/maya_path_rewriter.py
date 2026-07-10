@@ -34,6 +34,10 @@ WINDOWS_TARGET_ROOT = r"P:\JDZ\VFX\Assets\CGassets"
 # None = 完全保留原始 .ma 文件中的 -dr 设置
 REFERENCE_DEFER_VALUE: int | None = 0
 
+# 同名文件且父目录得分并列时，按顺序选择发布目录。
+# 默认优先 Publish；旧项目没有 Publish 时，再选择 Approve。
+PREFERRED_REFERENCE_FOLDERS = ("Publish", "Approve")
+
 # 项目内部目录和查找表文件名。全部相对于项目根目录。
 DATA_FOLDER = "data"
 INPUT_FOLDER = "ori"
@@ -503,21 +507,25 @@ def match_asset(old_path: str, table: dict[str, Any]) -> MatchResult:
         if score == highest_score
     ]
     if len(winners) != 1:
-        approve_winners = [
-            candidate
-            for candidate in winners
-            if "approve" in _parent_parts(
-                candidate,
-                strip_publish_directory=False,
-            )
-        ]
-        if len(approve_winners) == 1:
-            return MatchResult(
-                status="matched",
-                path=approve_winners[0],
-                candidates=candidates,
-                score=highest_score,
-            )
+        for preferred_folder in PREFERRED_REFERENCE_FOLDERS:
+            preferred_key = preferred_folder.casefold()
+            preferred_winners = [
+                candidate
+                for candidate in winners
+                if preferred_key in _parent_parts(
+                    candidate,
+                    strip_publish_directory=False,
+                )
+            ]
+            if len(preferred_winners) == 1:
+                return MatchResult(
+                    status="matched",
+                    path=preferred_winners[0],
+                    candidates=candidates,
+                    score=highest_score,
+                )
+            if len(preferred_winners) > 1:
+                break
         return MatchResult(
             status="conflict",
             path=None,

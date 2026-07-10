@@ -43,6 +43,7 @@ python_script/maya_path_rewriter.py
 SERVER_SCAN_ROOT = r"/Volumes/projects/JDZ/VFX/Assets/CGassets"
 WINDOWS_TARGET_ROOT = r"P:\JDZ\VFX\Assets\CGassets"
 REFERENCE_DEFER_VALUE = 0
+PREFERRED_REFERENCE_FOLDERS = ("Publish", "Approve")
 
 DATA_FOLDER = "data"
 INPUT_FOLDER = "ori"
@@ -101,6 +102,22 @@ REFERENCE_DEFER_VALUE = 0
 
 脚本只修改实际的 `file -r` 引用命令，不会修改 `file -rdi` 信息记录。
 原本没有 `-dr` 参数的引用会保持不变；Maya 默认会自动加载这类引用。
+
+### `PREFERRED_REFERENCE_FOLDERS`
+
+同名文件的父目录得分仍然并列时，按这里的顺序选择发布目录：
+
+```python
+PREFERRED_REFERENCE_FOLDERS = ("Publish", "Approve")
+```
+
+默认规则：
+
+1. 优先选择唯一的 `Publish` 文件。
+2. 没有 `Publish` 候选时，选择唯一的 `Approve` 文件。
+3. 首选目录中仍有多个候选时，保留原路径并报告冲突。
+
+目录名匹配不区分大小写，可以根据其他项目的目录规范修改这个元组。
 
 ## 第一步：生成查找表
 
@@ -236,7 +253,7 @@ python3 python_script/maya_path_rewriter.py rewrite ori/example.ma --dry-run
 3. 场景正文以原始二进制字节复制，避免大型文件被整体解码。
 4. 按不区分大小写的文件名查找目标文件。
 5. 同名文件优先使用父目录尾部与旧路径最接近的候选。
-6. 最高分候选仍并列时，默认选择唯一位于 `approve` 目录的文件。
+6. 最高分候选仍并列时，按照 `PREFERRED_REFERENCE_FOLDERS` 依次选择，默认优先 `Publish`，其次 `Approve`。
 7. 找不到文件时，保留原路径并打印“缺失”。
 8. 仍然无法唯一确认时，保留原路径并打印候选列表。
 9. 根据 `REFERENCE_DEFER_VALUE` 修改实际引用命令的延迟加载状态。
