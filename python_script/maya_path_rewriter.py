@@ -28,6 +28,12 @@ SERVER_SCAN_ROOT = r"/Volumes/projects/JDZ/VFX/Assets/CGassets"
 # 可以使用 Windows 反斜杠，脚本输出时会自动转换为 Maya 使用的正斜杠。
 WINDOWS_TARGET_ROOT = r"P:\JDZ\VFX\Assets\CGassets"
 
+# Maya 引用加载状态：
+# 0 = 自动加载引用（把实际 file -r 命令中的 -dr 改为 0）
+# 1 = 延迟加载引用（把实际 file -r 命令中的 -dr 改为 1）
+# None = 完全保留原始 .ma 文件中的 -dr 设置
+REFERENCE_DEFER_VALUE: int | None = 0
+
 # 项目内部目录和查找表文件名。全部相对于项目根目录。
 DATA_FOLDER = "data"
 INPUT_FOLDER = "ori"
@@ -81,6 +87,15 @@ class MatchResult(NamedTuple):
     path: str | None
     candidates: tuple[str, ...] = ()
     score: int | None = None
+
+
+class DeferOccurrence(NamedTuple):
+    """实际 file -r 命令中的 -dr 参数位置。"""
+
+    value: int
+    start: int
+    end: int
+    line: int
 
 
 def maya_path(path: str) -> str:
@@ -518,16 +533,47 @@ def match_asset(old_path: str, table: dict[str, Any]) -> MatchResult:
     )
 
 
+def scan_defer_reference_flags(text: str) -> list[DeferOccurrence]:
+    """定位实际 file -r 引用命令中的 -dr 0/1，不处理 file -rdi。"""
+    occurrences: list[DeferOccurrence] = []
+    reference_flag = re.compile(r"(?:^|\s)-r(?=\s|$)")
+    defer_flag = re.compile(r"(?<!\S)-dr\s+([01])(?=\s|$)")
+
+    for statement_start, _statement_end, statement in _iter_maya_statements(text):
+        code = _leading_code(statement)
+        if not re.match(r"file\b", code) or not reference_flag.search(code):
+            continue
+        match = defer_flag.search(statement)
+        if match is None:
+            continue
+        value_start = statement_start + match.start(1)
+        occurrences.append(
+            DeferOccurrence(
+                value=int(match.group(1)),
+                start=value_start,
+                end=statement_start + match.end(1),
+                line=text.count("\n", 0, value_start) + 1,
+            )
+        )
+
+    return occurrences
+
+
 def rewrite_maya_text(
     text: str,
     table: dict[str, Any],
+    defer_reference_value: int | None = REFERENCE_DEFER_VALUE,
 ) -> tuple[str, dict[str, Any]]:
     """只替换已确认路径的字符范围，返回新文本和完整报告。"""
+    if defer_reference_value not in (None, 0, 1):
+        raise ValueError("REFERENCE_DEFER_VALUE 只能是 0、1 或 None")
+
     occurrences = scan_maya_text(text)
     replacements: list[tuple[int, int, str]] = []
     cache: dict[str, MatchResult] = {}
     items: list[dict[str, Any]] = []
     counts = {"matched": 0, "conflict": 0, "missing": 0}
+    defer_changes: list[dict[str, int]] = []
 
     for occurrence in occurrences:
         cache_key = occurrence.path.casefold()
@@ -552,6 +598,25 @@ def rewrite_maya_text(
             }
         )
 
+    if defer_reference_value is not None:
+        for occurrence in scan_defer_reference_flags(text):
+            if occurrence.value == defer_reference_value:
+                continue
+            replacements.append(
+                (
+                    occurrence.start,
+                    occurrence.end,
+                    str(defer_reference_value),
+                )
+            )
+            defer_changes.append(
+                {
+                    "line": occurrence.line,
+                    "old_value": occurrence.value,
+                    "new_value": defer_reference_value,
+                }
+            )
+
     rewritten = text
     for start, end, replacement in sorted(replacements, reverse=True):
         rewritten = rewritten[:start] + replacement + rewritten[end:]
@@ -567,6 +632,9 @@ def rewrite_maya_text(
             if item["status"] == "matched"
             and item["new_path"] != item["old_path"]
         ),
+        "defer_changed": len(defer_changes),
+        "defer_value": defer_reference_value,
+        "defer_changes": defer_changes,
         "items": items,
     }
     return rewritten, report
@@ -651,8 +719,20 @@ def print_rewrite_report(report: dict[str, Any]) -> None:
         )
     print(
         "扫描到 {scanned} 处 .ma 路径：匹配 {matched}，"
-        "冲突 {conflict}，缺失 {missing}，实际修改 {changed}".format(**report)
+        "冲突 {conflict}，缺失 {missing}，实际修改 {changed}，"
+        "加载状态修改 {defer_changed}".format(**report)
     )
+    if report["defer_changes"]:
+        grouped_defer: dict[tuple[int, int], list[int]] = {}
+        for change in report["defer_changes"]:
+            key = (change["old_value"], change["new_value"])
+            grouped_defer.setdefault(key, []).append(change["line"])
+        for (old_value, new_value), lines in grouped_defer.items():
+            line_text = ", ".join(str(line) for line in lines)
+            print(
+                f"[加载设置] -dr {old_value} -> -dr {new_value} "
+                f"(出现 {len(lines)} 次，行 {line_text})"
+            )
     for group in grouped.values():
         lines = ", ".join(str(line) for line in group["lines"])
         print(
@@ -752,6 +832,7 @@ def rewrite_directory(
         "conflict": 0,
         "missing": 0,
         "changed": 0,
+        "defer_changed": 0,
         "files": [],
     }
 
@@ -780,7 +861,13 @@ def rewrite_directory(
             continue
 
         summary["processed"] += 1
-        for key in ("matched", "conflict", "missing", "changed"):
+        for key in (
+            "matched",
+            "conflict",
+            "missing",
+            "changed",
+            "defer_changed",
+        ):
             summary[key] += report[key]
         summary["files"].append(
             {
@@ -809,12 +896,25 @@ def print_batch_report(summary: dict[str, Any], dry_run: bool) -> None:
         print(
             f"  文件汇总："
             f"修改 {report['changed']}，缺失 {report['missing']}，"
-            f"冲突 {report['conflict']}，扫描路径 {report['scanned']}"
+            f"冲突 {report['conflict']}，扫描路径 {report['scanned']}，"
+            f"加载状态修改 {report.get('defer_changed', 0)}"
         )
         print(
             f"  扫描范围：文件头 {report['scanned_bytes']} 字节，"
             f"编码 {report['encoding']}；正文不解析"
         )
+
+        if report.get("defer_changes"):
+            grouped_defer: dict[tuple[int, int], list[int]] = {}
+            for change in report["defer_changes"]:
+                key = (change["old_value"], change["new_value"])
+                grouped_defer.setdefault(key, []).append(change["line"])
+            for (old_value, new_value), lines in grouped_defer.items():
+                line_text = ", ".join(str(line) for line in lines)
+                print(
+                    f"  [加载设置] -dr {old_value} -> -dr {new_value} "
+                    f"(出现 {len(lines)} 次，行 {line_text})"
+                )
 
         for group in _group_report_items(report):
             lines = ", ".join(str(line) for line in group["lines"])
@@ -839,8 +939,11 @@ def print_batch_report(summary: dict[str, Any], dry_run: bool) -> None:
         print()
 
     print(
-        "批处理汇总：发现 {found}，成功 {processed}，失败 {failed}，"
-        "修改 {changed}，缺失 {missing}，冲突 {conflict}".format(**summary)
+        f"批处理汇总：发现 {summary['found']}，"
+        f"成功 {summary['processed']}，失败 {summary['failed']}，"
+        f"修改 {summary['changed']}，缺失 {summary['missing']}，"
+        f"冲突 {summary['conflict']}，"
+        f"加载状态修改 {summary.get('defer_changed', 0)}"
     )
     if dry_run:
         print("试运行完成：没有写入任何文件")

@@ -42,6 +42,7 @@ python_script/maya_path_rewriter.py
 ```python
 SERVER_SCAN_ROOT = r"/Volumes/projects/JDZ/VFX/Assets/CGassets"
 WINDOWS_TARGET_ROOT = r"P:\JDZ\VFX\Assets\CGassets"
+REFERENCE_DEFER_VALUE = 0
 
 DATA_FOLDER = "data"
 INPUT_FOLDER = "ori"
@@ -79,6 +80,27 @@ WINDOWS_TARGET_ROOT = r"P:\JDZ\VFX\Assets\CGassets"
 ```text
 P:/JDZ/VFX/Assets/CGassets/...
 ```
+
+### `REFERENCE_DEFER_VALUE`
+
+控制实际 `file -r` 引用命令中的 `-dr` 参数：
+
+```python
+REFERENCE_DEFER_VALUE = 0
+```
+
+- `0`：把已有的 `-dr 1` 改为 `-dr 0`，打开 Maya 时自动加载引用。
+- `1`：把已有的 `-dr 0` 改为 `-dr 1`，打开 Maya 时延迟加载引用。
+- `None`：完全保留原始 `.ma` 文件中的 `-dr` 设置。
+
+推荐配置：
+
+```python
+REFERENCE_DEFER_VALUE = 0
+```
+
+脚本只修改实际的 `file -r` 引用命令，不会修改 `file -rdi` 信息记录。
+原本没有 `-dr` 参数的引用会保持不变；Maya 默认会自动加载这类引用。
 
 ## 第一步：生成查找表
 
@@ -155,6 +177,7 @@ python python_script\maya_path_rewriter.py batch --dry-run
 - 每一条旧路径和新路径
 - 路径出现次数和所在行号
 - 缺失或冲突时为什么保留原路径
+- `-dr 1` 和 `-dr 0` 的修改数量与所在行号
 
 `--dry-run` 不会生成或修改任何 `.ma` 文件。
 
@@ -216,7 +239,9 @@ python3 python_script/maya_path_rewriter.py rewrite ori/example.ma --dry-run
 6. 最高分候选仍并列时，默认选择唯一位于 `approve` 目录的文件。
 7. 找不到文件时，保留原路径并打印“缺失”。
 8. 仍然无法唯一确认时，保留原路径并打印候选列表。
-9. `.DS_Store` 和 `Thumbs.db` 不会写入查找表。
+9. 根据 `REFERENCE_DEFER_VALUE` 修改实际引用命令的延迟加载状态。
+10. `file -rdi` 信息记录不会被加载状态规则修改。
+11. `.DS_Store` 和 `Thumbs.db` 不会写入查找表。
 
 ## `data`、`ori` 和 `output` 的用途
 
