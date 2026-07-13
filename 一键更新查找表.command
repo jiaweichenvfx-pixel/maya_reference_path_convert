@@ -3,7 +3,7 @@
 SCRIPT_DIR="$(cd -- "$(dirname -- "$0")" && pwd)"
 PYTHON_SCRIPT="$SCRIPT_DIR/python_script/maya_path_rewriter.py"
 
-echo "Maya 资产引用路径批量转换"
+echo "Maya 资产查找表更新"
 echo "项目目录: $SCRIPT_DIR"
 echo
 
@@ -21,14 +21,14 @@ if [[ ! -f "$PYTHON_SCRIPT" ]]; then
     exit 1
 fi
 
-python3 "$PYTHON_SCRIPT" batch
+python3 "$PYTHON_SCRIPT" scan-server
 exit_code=$?
 
 echo
 if [[ $exit_code -eq 0 ]]; then
-    echo "转换完成，结果已写入 output 文件夹。"
+    echo "查找表更新完成，结果已写入 data 文件夹。"
 else
-    echo "[失败] 转换程序退出，状态码: $exit_code"
+    echo "[失败] 查找表更新程序退出，状态码: $exit_code"
 fi
 
 read -r "REPLY?按回车关闭窗口..."

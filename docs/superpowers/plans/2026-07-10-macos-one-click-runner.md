@@ -13,21 +13,21 @@
 ### Task 1: Add the macOS one-click runner
 
 **Files:**
-- Create: `一键转换.command`
+- Create: `一键更新ma文件路径.command`
 
 - [ ] **Step 1: Verify the runner does not exist yet**
 
 Run:
 
 ```bash
-test ! -e "一键转换.command"
+test ! -e "一键更新ma文件路径.command"
 ```
 
 Expected: exit code `0`.
 
 - [ ] **Step 2: Create the runner**
 
-Create `一键转换.command` with:
+Create `一键更新ma文件路径.command` with:
 
 ```zsh
 #!/bin/zsh
@@ -71,17 +71,17 @@ exit $exit_code
 Run:
 
 ```bash
-chmod +x "一键转换.command"
+chmod +x "一键更新ma文件路径.command"
 ```
 
-Expected: `test -x "一键转换.command"` exits with code `0`.
+Expected: `test -x "一键更新ma文件路径.command"` exits with code `0`.
 
 - [ ] **Step 4: Validate zsh syntax**
 
 Run:
 
 ```bash
-zsh -n "一键转换.command"
+zsh -n "一键更新ma文件路径.command"
 ```
 
 Expected: exit code `0` with no output.
@@ -97,7 +97,7 @@ Add instructions explaining:
 
 ```text
 1. Put source .ma files in ori/.
-2. Double-click 一键转换.command.
+2. Double-click 一键更新ma文件路径.command.
 3. Review the Chinese conversion report in Terminal.
 4. Press Enter to close the window.
 5. Find converted files in output/.
@@ -118,7 +118,7 @@ Expected: exit code `0`.
 ### Task 3: Verify the complete entry point
 
 **Files:**
-- Verify: `一键转换.command`
+- Verify: `一键更新ma文件路径.command`
 - Verify: `python_script/maya_path_rewriter.py`
 - Verify: `README.md`
 
@@ -137,8 +137,8 @@ Expected: the converter finds `.ma` files under `ori/`, prints per-file Chinese 
 Run:
 
 ```bash
-test -x "一键转换.command"
-rg -n 'python3 "\$PYTHON_SCRIPT" batch|按回车关闭窗口' "一键转换.command"
+test -x "一键更新ma文件路径.command"
+rg -n 'python3 "\$PYTHON_SCRIPT" batch|按回车关闭窗口' "一键更新ma文件路径.command"
 ```
 
 Expected: both checks succeed and the two key runner behaviors are present.
@@ -148,7 +148,7 @@ Expected: both checks succeed and the two key runner behaviors are present.
 Run:
 
 ```bash
-git add "一键转换.command" README.md docs/superpowers/plans/2026-07-10-macos-one-click-runner.md
+git add "一键更新ma文件路径.command" README.md docs/superpowers/plans/2026-07-10-macos-one-click-runner.md
 git commit -m "feat: add macOS one-click converter"
 ```
 

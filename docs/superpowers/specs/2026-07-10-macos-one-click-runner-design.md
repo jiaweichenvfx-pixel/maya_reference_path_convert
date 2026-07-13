@@ -1,16 +1,17 @@
-# macOS 一键转换入口设计
+# macOS 双一键入口设计
 
 ## 目标
 
-在项目根目录增加 `一键转换.command`。用户双击该文件后，无需输入
-`python3 ... batch`，即可批量处理 `ori/` 中的 `.ma` 文件，并把结果写入
-`output/`。
+在项目根目录保留两个 `.command` 入口：
+
+- `一键更新查找表.command`：无需输入 `python3 ... scan-server`，即可只读扫描服务器并更新 `data/` 查找表。
+- `一键更新ma文件路径.command`：无需输入 `python3 ... batch`，即可批量处理 `ori/` 中的 `.ma` 文件，并把结果写入 `output/`。
 
 ## 行为
 
 1. 根据 `.command` 文件自身位置定位项目根目录，不依赖终端当前目录。
 2. 检查系统是否存在 `python3`。
-3. 调用 `python_script/maya_path_rewriter.py batch`。
+3. 分别调用 `python_script/maya_path_rewriter.py scan-server` 或 `python_script/maya_path_rewriter.py batch`。
 4. 完整保留现有中文逐文件报告、缺失报告和冲突报告。
 5. 转换成功或失败后显示退出状态，并等待用户按回车，避免双击运行后窗口立即关闭。
 

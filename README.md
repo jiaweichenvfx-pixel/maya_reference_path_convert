@@ -9,7 +9,8 @@
 ```text
 maya_path_trans/
 ├── README.md
-├── 一键转换.command
+├── 一键更新查找表.command
+├── 一键更新ma文件路径.command
 ├── data/
 │   ├── server_files.json
 │   └── ma_file.json
@@ -32,21 +33,35 @@ maya_path_trans/
 
 ## macOS 一键运行（推荐）
 
-把需要转换的 `.ma` 文件放入 `ori/`，然后直接双击项目根目录中的：
+项目根目录有两个双击入口：
 
 ```text
-一键转换.command
+一键更新查找表.command
+一键更新ma文件路径.command
 ```
 
-脚本会自动执行批量转换，不需要手动输入 `python3` 或 `batch`。
-终端窗口会显示每个文件的替换、缺失、冲突和格式回退信息。
-转换完成后按回车关闭窗口，结果保存在 `output/`。
+### `一键更新查找表.command`
+
+双击后执行 `scan-server`：
+
+- 只读取服务器目录和文件元数据。
+- 更新 `data/server_files.json` 和 `data/ma_file.json`。
+- 不处理 `ori/`，不写 `output/`。
+
+### `一键更新ma文件路径.command`
+
+把需要转换的 `.ma` 文件放入 `ori/`，然后双击此脚本。
+
+- 执行批量转换。
+- 读取 `data/ma_file.json`。
+- 结果写入 `output/`。
+- 不扫描服务器。
+
+终端窗口会显示每个文件的替换、缺失、冲突、格式回退和加载状态信息。
+完成后按回车关闭窗口。
 
 macOS 第一次运行时如果阻止打开，可以按住 Control 点击
-`一键转换.command`，选择“打开”，然后再次确认“打开”。
-
-一键入口只执行路径转换，不会自动扫描服务器。需要更新查找表时，
-仍然使用后文的 `scan-server` 命令。
+对应的 `.command` 文件，选择“打开”，然后再次确认“打开”。
 
 ## 修改服务器路径
 
